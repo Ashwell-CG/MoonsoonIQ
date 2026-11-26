@@ -1,182 +1,359 @@
-# MonsoonIQ: Hyperlocal Monsoon Onset Pattern Discovery & Agricultural Advisory Platform
+<div align="center">
 
-[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.67.0-red.svg)](https://streamlit.io/)
-[![IMD 0.25°](https://img.shields.io/badge/Data-IMD%200.25%C2%B0%20Gridded-brightgreen.svg)](https://www.imdpune.gov.in/)
+# MonsoonIQ
 
-**MonsoonIQ** is a Maharashtra-focused meteorological intelligence and agricultural risk research platform. By integrating 23 years (2001–2023) of high-resolution India Meteorological Department (IMD) 0.25° gridded daily rainfall data across 419 land cells, MonsoonIQ discovers recurring spatio-temporal monsoon onset regimes and drives a transparent, regime-aware sowing advisory engine.
+**Hyperlocal Monsoon Onset and Sowing Advisory Dashboard for Maharashtra**
 
-The dashboard runs in **historical rainfall replay**. Choose a grid cell and an archived date to see historical rainfall and the advisory the research rules produce using observations through that date. Simulated data is reserved for testing. Live weather stations and forecast feeds are disconnected.
+A research platform that detects local monsoon onset from 23 years of IMD gridded rainfall, groups Maharashtra into four onset regimes, and shows a rule-based, regime-aware sowing advisory in a Streamlit dashboard.
 
----
+[![Live app](https://img.shields.io/badge/Live%20app-moonsooniq.streamlit.app-0ea5e9?style=flat-square)](https://moonsooniq.streamlit.app/)
+[![Python](https://img.shields.io/badge/Python-3.12-1e3a8a?style=flat-square)](requirements.txt)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.67-0f766e?style=flat-square)](requirements.txt)
+[![Plotly](https://img.shields.io/badge/Plotly-7.1-1e3a8a?style=flat-square)](requirements.txt)
+[![xarray](https://img.shields.io/badge/xarray-NetCDF-0f766e?style=flat-square)](requirements.txt)
+[![Tests](https://img.shields.io/badge/tests-183%20passed-0ea5e9?style=flat-square)](tests/)
+[![Data](https://img.shields.io/badge/Data-IMD%200.25%C2%B0%20gridded-1e3a8a?style=flat-square)](https://www.imdpune.gov.in/)
 
-## 🌧️ Key Scientific Capabilities
+[Live application](https://moonsooniq.streamlit.app/) · [Research paper](MonsoonIQ_IEEE_Paper.pdf) · [Phase reports](docs/) · [GitHub repository](https://github.com/Ashwell-CG/MoonsoonIQ)
 
-1. **Hyperlocal Sustained Onset Detection (Phase 5B):**
-   - 5-day accumulation threshold + 20-day verification window to distinguish true sustained onset from false starts.
-   - Identified 9,606 confirmed onset events across 419 grid cells over 23 years.
+</div>
 
-2. **Unsupervised Onset Regime Discovery (Phases 6A–6B):**
-   - Discovered 4 distinct agro-climatic monsoon onset regimes via K-Means clustering across 9 onset-dynamics features:
-     - **Core Interior Synchronized (215 cells / 51.3%):** Vidarbha & eastern Marathwada; reliable Bay of Bengal surge (~June 12–14).
-     - **Interior Semi-Arid Transition (97 cells / 23.2%):** Central transition belt with intermediate onset delay.
-     - **Early Maritime & Western Ghats (65 cells / 15.5%):** Earliest onset (~June 7–9), heavy orographic precipitation.
-     - **Rain-Shadow High-Volatility (42 cells / 10.0%):** Western Ghats lee (Ahmednagar, Solapur, Sangli, eastern Pune); high break frequency.
+> **Important:** MonsoonIQ replays **historical** rainfall (2001–2023). It is not a weather forecast and does not use live observations. Advisory states are research indicators of topsoil wetting. They cannot guarantee crop establishment or yield, and the dashboard never declares a field "safe to sow". Use local KVK and state agricultural university guidance for decisions.
 
-3. **Regime-Aware Sowing Advisory Engine (Phases 8.1–8.2):**
-   - Transparent state machine (`RAINFALL_CRITERIA_MET`, `CAUTION`, `HIGH_RISK`, `INSUFFICIENT_DATA`).
-   - Rain-Shadow Two-Stage verification: 75 mm active wetting cycle + two qualifying wet days (≥2.5 mm) within a 5-day window.
-   - 10-day dry-spell moisture depletion reset prevents counting ancient evaporated rainfall.
-   - Strictly prohibits misleading "Safe to Sow" declarations.
+![MonsoonIQ overview page with the Maharashtra rainfall map and a dated sowing advisory](docs/images/overview.jpg)
 
-4. **Interactive Meteorological Dashboard (Phase 9):**
-   - Dark field guide interface built with Streamlit and Plotly for desktop and mobile.
-   - Interactive 419-cell Maharashtra map with daily rainfall and onset regime layers, hover details, and cell selection.
-   - Daily rainfall timeseries, annual trends, monthly distributions, and dry spell monitoring.
+## Contents
 
----
+1. [Live demo](#live-demo)
+2. [Overview](#overview)
+3. [Key features](#key-features)
+4. [Screenshots](#screenshots)
+5. [System architecture](#system-architecture)
+6. [Methodology](#methodology)
+7. [Dataset](#dataset)
+8. [Results](#results)
+9. [Validation status](#validation-status)
+10. [Technology stack](#technology-stack)
+11. [Project structure](#project-structure)
+12. [Local installation](#local-installation)
+13. [Testing](#testing)
+14. [Deployment](#deployment)
+15. [Limitations](#limitations)
+16. [Future improvements](#future-improvements)
+17. [Academic documentation](#academic-documentation)
 
-## Run the dashboard locally
+## Live demo
 
-1. Open a terminal in the project folder that contains this README. With Python 3.12 installed, create a virtual environment.
+| Resource | URL |
+|---|---|
+| Dashboard | https://moonsooniq.streamlit.app/ |
+| Overview and map | https://moonsooniq.streamlit.app/?section=Overview%20%26%20Map |
+| Agricultural advisory | https://moonsooniq.streamlit.app/?section=Agricultural%20Advisory |
 
-   ```bash
-   python -m venv .venv
-   ```
+The app runs on Streamlit Community Cloud's free plan. After a period of inactivity the first visit can take 30 seconds or more while the app wakes up and loads the 15 MB rainfall file.
 
-   On Windows PowerShell, activate it with `.\.venv\Scripts\Activate.ps1`. On macOS or Linux, use `source .venv/bin/activate`.
+## Overview
 
-2. Install the dashboard dependencies.
+The monsoon does not arrive on one date. Across Maharashtra the first sustained rains differ by place and by year, and an early shower can be followed by a long dry break that kills a freshly sown crop. A single state-wide onset date hides this.
 
-   ```bash
-   python -m pip install streamlit==1.67.0 plotly numpy pandas xarray netCDF4 shapely
-   ```
+MonsoonIQ works at the scale of one IMD grid cell (0.25° × 0.25°, about 27 km):
 
-3. Place these processed files in `data/processed/`. This folder is Git-ignored, so a fresh checkout needs a copy of the project’s processed datasets. The map boundaries are in [`data/geo/`](data/geo/).
+1. It detects a **local sustained onset** for each of 419 land cells in each of 23 years, using a 5-day accumulation test and a 20-day verification window to reject false starts.
+2. It groups the cells into **four onset regimes** with K-Means on nine onset-dynamics features.
+3. It runs a **rule-based advisory engine** that, for a chosen cell and date, looks only at rainfall up to that date and reports one of four states with the rules, thresholds and sources behind it.
+4. It presents all of this in a **Streamlit dashboard** built around a replay: pick a place, a year and a day in June or July, and see what the rules would have said.
 
-   - `maharashtra_imd_daily_2001_2023.nc`
-   - `maharashtra_onset_2001_2023.nc`
-   - `advisory_historical_baselines.csv`
+The project is an academic study and a deployed application. It does not fetch live weather.
 
-4. Start Streamlit from the project root, then open [http://localhost:8501](http://localhost:8501).
+## Key features
 
-   ```bash
-   python -m streamlit run dashboard/app.py
-   ```
+- **Local onset detection** across 419 cells and 23 seasons, with 9,606 confirmed onsets out of 9,637 cell-years.
+- **Four discovered regimes** with named, mappable agro-climatic meaning (see [Results](#results)).
+- **Regime-aware sowing advisory** with four explicit states: `RAINFALL CRITERIA MET`, `CAUTION`, `HIGH RISK` and `INSUFFICIENT DATA`.
+- **Transparent reasoning**: every advisory lists the conditions it checked, the threshold, the actual value and the source of the rule.
+- **Active-wetting-cycle reset**: a dry spell of 10 days or more discards earlier rainfall as evaporated.
+- **Interactive atlas** of all 419 cells, switchable between daily rainfall and onset regime, with a selected-cell marker.
+- **Rainfall monitoring**: daily rainfall, monthly distribution, June–September totals by year and dry-spell analysis.
+- **Data provenance**: the interface states that the data is a historical replay and lists which sources are connected and which are not.
+- **Responsive dark interface** that works on desktop and phone widths.
 
----
+## Screenshots
 
-## Dashboard pages
+| Overview and map | Agricultural advisory |
+|---|---|
+| ![Overview](docs/images/overview.jpg) | ![Advisory](docs/images/advisory.jpg) |
 
-| Page | What you can explore |
-| --- | --- |
-| **Overview & Map** | Select a grid cell, study year, and replay day. Switch between daily rainfall and onset regimes, then inspect the cell’s rainfall, onset history, and dated advisory. |
-| **Rainfall Monitoring** | Daily rainfall from May 15 to October 15, monthly distribution, June–September (JJAS) totals across 2001–2023, and dry spell duration. |
-| **Monsoon Onset Analysis** | Year-by-year confirmed onset, the historical median, detection rates, and rejected candidates for the selected cell. |
-| **Regime Analysis** | Compare the four onset regimes by cell count, onset timing and variability, June rainfall, and post-onset dry spells. |
-| **Agricultural Advisory** | Evaluate a historical date and inspect the result, cumulative and active-cycle rainfall, rule checks, and contingency guidance. Rainfall thresholds are research indicators and cannot guarantee crop establishment. |
-| **All Sections (Comprehensive)** | Browse the rainfall charts, interactive map, onset analysis, regime comparisons, and advisory on one page. |
+| Regime analysis | Monsoon onset analysis |
+|---|---|
+| ![Regimes](docs/images/regimes.jpg) | ![Onset](docs/images/onset.jpg) |
 
-### Desktop
+| Rainfall monitoring | Mobile |
+|---|---|
+| ![Rainfall](docs/images/rainfall.jpg) | <img src="docs/images/mobile-overview.jpg" alt="Mobile overview" width="260"> |
 
-![Final desktop screenshots of the six MonsoonIQ dashboard pages](figures/dashboard-review/final/desktop-review.jpg)
+## System architecture
 
-### Mobile
+```mermaid
+flowchart LR
+    I[("IMD Pune<br/>0.25° daily rainfall<br/>2001–2023")] --> P["Preprocessing<br/>scripts/preprocess_imd_history.py"]
+    P --> N[("Processed NetCDF<br/>data/processed")]
+    N --> O["Onset detection<br/>5-day accumulation +<br/>20-day verification"]
+    O --> F["Nine onset-dynamics<br/>features per cell"]
+    F --> K["K-Means, K = 4<br/>onset regimes"]
+    K --> B[("Baselines CSV<br/>regime + history per cell")]
 
-![Final mobile screenshots of the six MonsoonIQ dashboard pages](figures/dashboard-review/final/mobile-review.jpg)
-
-[Download all 12 full-resolution screenshots](figures/dashboard-review/final/screenshots.zip).
-
----
-
-
-## 🧪 Running the Test Suite
-
-MonsoonIQ features an extensive, automated test suite covering data preprocessing, onset detection, clustering robustness, sowing trigger consistency, advisory engine rules, and dashboard integration.
-
-Run all 182 unit and integration tests:
-
-```bash
-uv run pytest -v
+    N --> L["dashboard/services<br/>cached loaders"]
+    B --> L
+    L --> A["src/advisory<br/>RainfallMonitor +<br/>AdvisoryDecisionEngine"]
+    L --> C["dashboard/components<br/>map, charts, panels"]
+    A --> C
+    C --> S(["Streamlit app<br/>Community Cloud"])
 ```
 
-Run dashboard-specific tests:
-```bash
-uv run pytest tests/test_dashboard.py -v
-```
+| Layer | Location | Role |
+|---|---|---|
+| Data pipeline | `scripts/`, `data/processed/` | Acquire, preprocess, detect onset, build features, cluster, audit |
+| Advisory engine | `src/advisory/` | Rainfall accumulation, dry-spell tracking, regime lookup, decision rules |
+| Services | `dashboard/services/` | Cached NetCDF and CSV loaders, summary computation |
+| Interface | `dashboard/components/`, `dashboard/app.py` | Pages, atlas, charts, advisory panel, styling |
 
----
+The dashboard reads processed files from `data/processed/` and `data/geo/` only. It never calls an external API.
 
-## 📁 Repository Structure
+## Methodology
 
-```
+### Local sustained onset
+
+A candidate onset is the first day on which rainfall reaches the accumulation threshold within a 5-day window. It is **confirmed** only if the following 20-day verification window passes, which separates a true onset from a false start. This is a rainfall-based local definition, not the synoptic regional onset declared by IMD. Details: [`docs/PHASE_5A_ONSET_METHODOLOGY.md`](docs/PHASE_5A_ONSET_METHODOLOGY.md) and [`docs/PHASE_5B_ONSET_RESULTS.md`](docs/PHASE_5B_ONSET_RESULTS.md).
+
+### Regime discovery
+
+Each cell is described by nine features covering onset timing, variability, early and delayed onset frequency, rejected candidates, dry-spell length and detection rate. K-Means with K = 4 was chosen and then stress-tested against hierarchical clustering, bootstrap resampling and feature-ablation checks. Details: [`docs/PHASE_6_CLUSTERING_RESULTS.md`](docs/PHASE_6_CLUSTERING_RESULTS.md) and [`docs/PHASE_6B_CLUSTERING_VALIDATION.md`](docs/PHASE_6B_CLUSTERING_VALIDATION.md).
+
+### Sowing advisory
+
+The advisory engine is a small state machine over rainfall observed up to the chosen date. A wet day is a day with at least 2.5 mm. The rules include:
+
+- A data-completeness check: at least 90% complete and at most 3 missing days.
+- A cumulative rainfall threshold, 50 mm by default.
+- **Rain-Shadow regime, two-stage rule**: 75 mm in the active wetting cycle, and two qualifying wet days within a 5-day verification window.
+- A **10-day dry-break reset**: earlier rainfall is not counted after a dry spell of 10 days or more.
+- A heavy-rainfall hazard check for single-day and three-day totals.
+
+The Rain-Shadow rule exists because a plain 50 mm trigger there is followed by a dry spell of 10 days or more in 39.13% of triggered years (see [Results](#results)). Details: [`docs/PHASE_7_1_SOWING_TRIGGER_AUDIT.md`](docs/PHASE_7_1_SOWING_TRIGGER_AUDIT.md), [`docs/PHASE_8_ADVISORY_ENGINE.md`](docs/PHASE_8_ADVISORY_ENGINE.md) and [`docs/PHASE_8_2_ACCUMULATION_AUDIT.md`](docs/PHASE_8_2_ACCUMULATION_AUDIT.md).
+
+## Dataset
+
+| Item | Detail |
+|---|---|
+| Source | India Meteorological Department, Pune: gridded daily rainfall, Climate Monitoring and Prediction Group |
+| Resolution | 0.25° × 0.25° (about 27 km × 27 km) |
+| Period | 2001–2023 (23 monsoon seasons) |
+| Domain | Maharashtra: 419 valid land cells |
+| Cross-check | CHIRPS 2023 was audited as an independent comparison ([`docs/PHASE_1B_SCIENTIFIC_AUDIT.md`](docs/PHASE_1B_SCIENTIFIC_AUDIT.md)) |
+
+What the data is, and is not:
+
+- Values are **spatial averages over grid boxes**, not rain-gauge readings at a village.
+- Missing values are kept as missing. They are never filled with zero.
+- The repository includes the processed files the dashboard needs: two NetCDF files and three CSV files in `data/processed/`, and the boundaries in `data/geo/`. Raw downloads and intermediate files are not included.
+
+Acquisition and preprocessing are described in [`docs/PHASE_2_IMD_ACQUISITION.md`](docs/PHASE_2_IMD_ACQUISITION.md) and [`docs/PHASE_3_DATA_PREPROCESSING.md`](docs/PHASE_3_DATA_PREPROCESSING.md).
+
+## Results
+
+### The four regimes
+
+| Regime | Cells | Share | Median onset | Onset spread (σ) | Detection rate |
+|---|---:|---:|---|---:|---:|
+| Core Interior Synchronized | 215 | 51.3% | 12 Jun | ±10.7 days | 99.9% |
+| Interior Semi-Arid Transition | 97 | 23.2% | 17 Jun | ±16.2 days | 100.0% |
+| Early Maritime & Western Ghats | 65 | 15.5% | 7 Jun | ±8.4 days | 100.0% |
+| Rain-Shadow High-Volatility | 42 | 10.0% | 11 Jun | ±30.7 days | 97.2% |
+
+Median onset and spread are regime means of the per-cell values shown on the dashboard's Regime analysis page.
+
+### Why the Rain-Shadow regime has its own rule
+
+After the first 50 mm of rain, the chance of a dry spell within the next 20 days is:
+
+| Regime | Dry spell ≥ 7 days | Dry spell ≥ 10 days |
+|---|---:|---:|
+| Core Interior Synchronized | 35.61% | 12.52% |
+| Rain-Shadow High-Volatility | **65.59%** | **39.13%** |
+| Early Maritime & Western Ghats | 18.83% | 7.04% |
+| Interior Semi-Arid Transition | 48.64% | 24.99% |
+
+Source: [`docs/PHASE_7_1_SOWING_TRIGGER_AUDIT.md`](docs/PHASE_7_1_SOWING_TRIGGER_AUDIT.md).
+
+### Clustering quality
+
+| Check | Result |
+|---|---|
+| K-Means K = 4, silhouette | 0.2987 |
+| K-Means K = 4, Davies-Bouldin / Calinski-Harabasz | 1.1948 / 189.71 |
+| Seed stability, 10 random seeds (ARI) | 0.9942 |
+| Agreement with Ward hierarchical clustering (ARI) | 0.680 |
+| Bootstrap over the 23 years, 100 resamples (mean ARI) | 0.4028, 95% interval 0.2299 to 0.6119 |
+
+How to read these: K = 2 and K = 3 score a higher silhouette (0.353 and 0.348) because they split the state into broad halves. K = 4 was kept because it separates the interior from the volatile rain-shadow cells, which matters for sowing. The cluster structure is **moderately stable** when years are resampled, so regime boundaries should be read as indicative and not as sharp lines. Source: [`docs/PHASE_6_CLUSTERING_RESULTS.md`](docs/PHASE_6_CLUSTERING_RESULTS.md) and [`docs/PHASE_6B_CLUSTERING_VALIDATION.md`](docs/PHASE_6B_CLUSTERING_VALIDATION.md).
+
+## Validation status
+
+| Item | Status |
+|---|---|
+| Automated tests (`tests/`) | 183 passed |
+| Advisory rules audited against agronomy sources | Documented in `docs/PHASE_8_1_ADVISORY_LOGIC_AUDIT.md` |
+| Dashboard checked in a browser at 360, 390, 768, 1024 and 1440 px | No horizontal overflow and no error boxes on all six pages (manual check, not automated in the repository) |
+| Fresh-clone start-up | Verified: a clean clone runs the app without extra files |
+| Comparison of advisories with real farm outcomes | **Not done** |
+| Comparison with live station observations | **Not done** (no live feed is connected) |
+
+The advisory states describe what a rainfall rule says about historical data. They have not been validated against sowing results in farmers' fields.
+
+## Technology stack
+
+| Area | Technologies |
+|---|---|
+| Interface | Streamlit 1.67, Plotly 7.1, custom CSS |
+| Data handling | xarray, netCDF4, pandas 3.1, NumPy 2.5, SciPy, Shapely |
+| Advisory engine | Plain Python dataclasses and a rule-based state machine in `src/advisory/` |
+| Analysis scripts | scikit-learn (K-Means, hierarchical clustering, metrics), matplotlib |
+| Deployment | Streamlit Community Cloud |
+| Testing | pytest |
+| Paper | IEEE conference format, LaTeX and Typst sources |
+
+## Project structure
+
+```text
 MonsoonIQ/
-├── dashboard/                     # Streamlit Interactive Dashboard
-│   ├── app.py                     # Main application entry point & dark theme
-│   ├── components/                # Modular UI components
-│   │   ├── header.py              # Title & metadata header
-│   │   ├── metric_cards.py        # Top summary metric cards
-│   │   ├── rainfall_atlas.py      # Interactive rainfall and regime map
-│   │   ├── rainfall_charts.py     # Plotly daily, monthly, and annual charts
-│   │   ├── onset_analysis.py      # Onset timeline and statistics
-│   │   ├── regime_analysis.py     # 4-regime comparative analysis
-│   │   ├── advisory_panel.py      # Sowing advisory engine interface
-│   │   └── provenance.py          # Provenance banners & scientific caveats
-│   ├── services/                  # Cached data loaders and aggregation services
-│   │   ├── data_loader.py         # NetCDF and CSV cached loaders
-│   │   └── dashboard_service.py   # Higher-level summary computation
-│   └── utils/                     # Formatting and constants
-│       ├── constants.py           # Colors, paths, regimes, and study period
-│       └── formatting.py          # Date, DOY, and unit formatters
-├── src/                           # Backend Core Package
-│   └── advisory/                  # Advisory state machine, models, and rules
-│       ├── decision_engine.py     # Core advisory decision engine
-│       ├── rainfall_monitor.py    # Rainfall accumulation & dry-spell tracker
-│       ├── lookup_service.py      # Grid cell and regime lookup
-│       └── models.py              # Pydantic/dataclass data structures
+├── dashboard/
+│   ├── app.py                   Streamlit entry point: navigation, filters, page routing
+│   ├── components/              Pages and widgets
+│   │   ├── field_guide.py       Overview page: place picker, atlas, advisory record
+│   │   ├── rainfall_atlas.py    Tile-free Maharashtra map of 419 cells
+│   │   ├── rainfall_charts.py   Daily, monthly, seasonal and dry-spell charts
+│   │   ├── onset_analysis.py    Year-by-year onset and summary statistics
+│   │   ├── regime_analysis.py   Four-regime comparison
+│   │   ├── advisory_panel.py    Advisory state, reasoning and conditions
+│   │   ├── provenance.py        Data-source notes and scientific caveats
+│   │   └── *.css                Field-guide and analysis-page styles
+│   ├── services/                Cached loaders and aggregation
+│   └── utils/                   Constants, formatting, chart theme
+├── src/advisory/                Advisory engine: models, rainfall monitor, regime lookup, decisions
+├── scripts/                     Acquisition, preprocessing, onset, clustering and audit scripts
 ├── data/
-│   ├── processed/                 # Processed NetCDF and CSV datasets (Git-ignored)
-│   └── geo/                       # GeoJSON administrative boundaries
-├── docs/                          # Detailed Phase 1–9 Scientific Reports
-├── tests/                         # Comprehensive test suites (182 tests)
-└── README.md                      # Project documentation and run guide
+│   ├── processed/               NetCDF and CSV files read by the dashboard
+│   └── geo/                     Maharashtra state and district boundaries (GeoJSON)
+├── docs/                        Phase 1–9 reports; docs/images/ holds README screenshots
+├── figures/                     Figures used in the paper
+├── tests/                       Test suites
+├── .streamlit/config.toml       Theme and server settings
+├── requirements.txt             Runtime dependencies for the deployed app
+└── README.md
 ```
 
----
+## Local installation
 
-## 📄 IEEE Conference Research Paper
+These steps are for Windows PowerShell. You need Python 3.12.
 
-The complete academic research paper for MonsoonIQ is authored in official IEEE conference format:
+**1. Clone the repository**
 
-- **LaTeX Source:** [`main.tex`](main.tex) (also preserved as [`MonsoonIQ_IEEE_Paper.tex`](MonsoonIQ_IEEE_Paper.tex))
-- **BibTeX Bibliography:** [`references.bib`](references.bib)
-- **High-Resolution Figures:** [`figures/`](figures/) (12 publication-quality scientific plots and system diagrams)
-- **Compiled PDF:** [`main.pdf`](main.pdf) (also preserved as [`MonsoonIQ_IEEE_Paper.pdf`](MonsoonIQ_IEEE_Paper.pdf))
-- **Data Verification Dossier:** [`DATA_VERIFICATION_REPORT.md`](DATA_VERIFICATION_REPORT.md)
-
-### Overleaf Compilation Instructions
-1. In Overleaf, click **New Project** $\rightarrow$ **Blank Project** (or upload ZIP).
-2. Upload `main.tex`, `references.bib`, and the `figures/` folder.
-3. Ensure the compiler is set to **pdfLaTeX** with TeX Live 2023 or newer.
-4. Click **Recompile** to generate the two-column IEEE conference paper.
-
-### Local Compilation Instructions
-```bash
-# Standard LaTeX toolchain:
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
-
-# Or instant local build via Typst:
-uv run python -c "import typst; typst.compile('MonsoonIQ_IEEE_Paper.typ', output='main.pdf')"
+```powershell
+git clone https://github.com/Ashwell-CG/MoonsoonIQ.git
+cd MoonsoonIQ
 ```
 
----
+**2. Create a virtual environment and install the requirements**
 
-## 🔬 Scientific Data Integrity & Boundaries
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
 
-- **Spatial Resolution:** Values are spatial averages over 0.25° × 0.25° (~27 km × 27 km) grid boxes produced by IMD's gridded interpolation. They do not represent point rain-gauge measurements.
-- **Missing Data Handling:** Missing values are strictly preserved as `NaN` and are never imputed as zero.
-- **Agricultural Caveat:** Rainfall thresholds are empirical topsoil moisture proxies, not guarantees of crop emergence or yield. Never use "Safe to Sow".
+**3. Start the dashboard**
+
+```powershell
+python -m streamlit run dashboard/app.py
+```
+
+Open `http://localhost:8501`. The processed data files are already in the repository, so nothing else is needed.
+
+On macOS or Linux, activate with `source .venv/bin/activate` instead.
+
+## Testing
+
+| Suite | Command (from the project root) | Result |
+|---|---|---|
+| Full test suite | `python -m pytest -q` | 183 passed |
+| Dashboard tests only | `python -m pytest tests/test_dashboard.py -q` | Included in the total |
+
+The runtime `requirements.txt` is enough to start the app. The full test suite also uses scikit-learn, matplotlib and pytest, so install them first:
+
+```powershell
+python -m pip install pytest scikit-learn matplotlib
+```
+
+The tests cover preprocessing, onset detection, clustering, the sowing-trigger audits, the advisory engine and the dashboard helpers.
+
+## Deployment
+
+The app is deployed on Streamlit Community Cloud.
+
+| Setting | Value |
+|---|---|
+| Repository | `Ashwell-CG/MoonsoonIQ`, branch `main` |
+| Main file path | `dashboard/app.py` |
+| Python version | 3.12 |
+| Dependencies | `requirements.txt` |
+| Secrets | None required |
+
+The repository includes the processed data files (about 15 MB for the daily rainfall NetCDF), because the deployed app reads them at start-up. The raw and intermediate data folders are git-ignored.
+
+To deploy your own copy: push the repository to GitHub, open share.streamlit.io, choose **Create app**, select the repository and branch, set the main file to `dashboard/app.py`, pick Python 3.12 under advanced settings, and deploy.
+
+## Limitations
+
+- **Historical replay only**: there is no live station feed and no forecast model. The interface lists these sources as not connected.
+- **Gridded data**: 0.25° averages cannot represent a single field or village. Local rainfall can differ.
+- **Rainfall-only rules**: the advisory looks at rainfall. It does not use soil type, soil moisture measurements, temperature, crop variety or irrigation.
+- **Rule thresholds are proxies**: 50 mm and 75 mm are topsoil-wetting indicators from agronomy guidance, not guarantees of germination.
+- **Local onset definition**: onset here is rainfall-based and local. It differs from the official regional onset declared by IMD.
+- **Moderate cluster stability**: regimes are stable across random seeds but only moderately stable when years are resampled (mean ARI 0.40).
+- **Short record**: 23 seasons cannot capture long-term climate shifts.
+- **No field validation**: advisories have not been compared with real sowing outcomes.
+- **Free hosting**: the app sleeps when idle and the first request is slow.
+- **No licence file yet**: the repository does not currently state a licence.
+
+## Future improvements
+
+These are proposals, not features of the current version.
+
+- Connect observed station data (for example AWS networks) and label it clearly as observed.
+- Evaluate advisories against recorded sowing and crop-establishment outcomes.
+- Add soil-moisture or soil-type information to the rules.
+- Test the regimes on a longer record and on rolling time windows.
+- Add a forecast-driven mode only after it can be validated and clearly separated from the replay.
+- Add a licence and a data-use statement for the processed files.
+
+## Academic documentation
+
+| Document | Link |
+|---|---|
+| IEEE conference paper (PDF) | [`MonsoonIQ_IEEE_Paper.pdf`](MonsoonIQ_IEEE_Paper.pdf) |
+| Paper source and bibliography | [`main.tex`](main.tex), [`references.bib`](references.bib) |
+| Data verification dossier | [`DATA_VERIFICATION_REPORT.md`](DATA_VERIFICATION_REPORT.md) |
+| Phase 1B: CHIRPS audit | [`docs/PHASE_1B_SCIENTIFIC_AUDIT.md`](docs/PHASE_1B_SCIENTIFIC_AUDIT.md) |
+| Phase 2: IMD acquisition | [`docs/PHASE_2_IMD_ACQUISITION.md`](docs/PHASE_2_IMD_ACQUISITION.md) |
+| Phase 3: Preprocessing | [`docs/PHASE_3_DATA_PREPROCESSING.md`](docs/PHASE_3_DATA_PREPROCESSING.md) |
+| Phase 4: Exploratory analysis | [`docs/PHASE_4_EDA_REPORT.md`](docs/PHASE_4_EDA_REPORT.md) |
+| Phase 5A: Onset methodology | [`docs/PHASE_5A_ONSET_METHODOLOGY.md`](docs/PHASE_5A_ONSET_METHODOLOGY.md) |
+| Phase 5B: Onset results | [`docs/PHASE_5B_ONSET_RESULTS.md`](docs/PHASE_5B_ONSET_RESULTS.md) |
+| Phase 6: Clustering results | [`docs/PHASE_6_CLUSTERING_RESULTS.md`](docs/PHASE_6_CLUSTERING_RESULTS.md) |
+| Phase 6B: Clustering validation | [`docs/PHASE_6B_CLUSTERING_VALIDATION.md`](docs/PHASE_6B_CLUSTERING_VALIDATION.md) |
+| Phase 7: Regime agricultural validation | [`docs/PHASE_7_REGIME_AGRICULTURAL_VALIDATION.md`](docs/PHASE_7_REGIME_AGRICULTURAL_VALIDATION.md) |
+| Phase 7.1: Sowing trigger audit | [`docs/PHASE_7_1_SOWING_TRIGGER_AUDIT.md`](docs/PHASE_7_1_SOWING_TRIGGER_AUDIT.md) |
+| Phase 8: Advisory engine | [`docs/PHASE_8_ADVISORY_ENGINE.md`](docs/PHASE_8_ADVISORY_ENGINE.md) |
+| Phase 8.1: Advisory logic audit | [`docs/PHASE_8_1_ADVISORY_LOGIC_AUDIT.md`](docs/PHASE_8_1_ADVISORY_LOGIC_AUDIT.md) |
+| Phase 8.2: Accumulation audit | [`docs/PHASE_8_2_ACCUMULATION_AUDIT.md`](docs/PHASE_8_2_ACCUMULATION_AUDIT.md) |
+| Phase 9: Dashboard report | [`docs/PHASE_9_DASHBOARD_REPORT.md`](docs/PHASE_9_DASHBOARD_REPORT.md) |
