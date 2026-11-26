@@ -1,0 +1,51 @@
+# Data files (kept locally, never tracked in Git)
+data/raw/
+data/interim/
+data/processed/*
+*.nc
+# Data the deployed dashboard reads at runtime
+!data/processed/maharashtra_imd_daily_2001_2023.nc
+!data/processed/maharashtra_onset_2001_2023.nc
+!data/processed/advisory_historical_baselines.csv
+!data/processed/monsoon_onset_clusters.csv
+!data/processed/monsoon_onset_features.csv
+*.grd
+*.GRD
+*.grib
+*.bin
+*.pkl
+
+# Graphify outputs
+graphify-out/
+
+# Python Virtual Environment and caches
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE configurations
+.vscode/
+.idea/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment and secrets
+.env
+*.pem
+*.key
+
+# Local tooling
+.claude/
+.agents/
+.pytest_cache/
+tools/

@@ -1,0 +1,556 @@
+{
+  "dataset": {
+    "total_cells": 419,
+    "feature_count": 9,
+    "features": [
+      "median_onset_doy",
+      "mean_onset_doy",
+      "std_onset_doy",
+      "iqr_onset_doy",
+      "early_onset_freq",
+      "delayed_onset_freq",
+      "rejected_candidate_freq",
+      "mean_max_dry_spell",
+      "onset_detection_freq"
+    ]
+  },
+  "kmeans": {
+    "optimal_k": 4,
+    "metrics": {
+      "inertia": [
+        2521.1668058855075,
+        1930.85207864838,
+        1590.2115351860098,
+        1336.75329456233,
+        1142.5624342866786,
+        1027.4277298718878,
+        949.3109318138736
+      ],
+      "silhouette": [
+        0.35274036873966086,
+        0.34840515688352186,
+        0.29866186719888416,
+        0.31685445474303586,
+        0.32747623413187094,
+        0.28213433728801585,
+        0.25418462091348853
+      ],
+      "davies_bouldin": [
+        1.2385047786066583,
+        1.0852391310232001,
+        1.1947590956678373,
+        1.080637605694543,
+        1.031624275527699,
+        1.11602290812733,
+        1.130138188408883
+      ],
+      "calinski_harabasz": [
+        206.7219196798405,
+        198.2289435185875,
+        189.70792939023343,
+        188.47496769797655,
+        190.01932534519685,
+        183.36273887827423,
+        174.51969907246325
+      ]
+    },
+    "stability": {
+      "k_3": {
+        "mean_ari": 0.9127116883093532,
+        "min_ari": 0.7487393822708776,
+        "max_ari": 1.0
+      },
+      "k_4": {
+        "mean_ari": 0.9942313211223766,
+        "min_ari": 0.986004452125686,
+        "max_ari": 1.0
+      },
+      "k_5": {
+        "mean_ari": 0.9833434646076606,
+        "min_ari": 0.9637673810788654,
+        "max_ari": 1.0
+      }
+    },
+    "cluster_sizes": {
+      "0": 215,
+      "1": 42,
+      "2": 65,
+      "3": 97
+    },
+    "regimes": {
+      "0": "Core Interior Synchronized",
+      "1": "Rain-Shadow High-Volatility",
+      "2": "Early Maritime & Western Ghats",
+      "3": "Interior Semi-Arid Transition"
+    }
+  },
+  "hierarchical": {
+    "optimal_k": 4,
+    "linkage": "ward",
+    "cophenetic_coefficients": {
+      "ward": 0.6392027011040791,
+      "complete": 0.7303767854938397,
+      "average": 0.8535165019906629
+    },
+    "ward_metrics": {
+      "k_values": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "silhouette": [
+        0.5360871830419454,
+        0.3555200323466614,
+        0.27442226411842935,
+        0.2886230329576507,
+        0.30873045131039945,
+        0.2664693857328403,
+        0.2522021731989762
+      ],
+      "davies_bouldin": [
+        1.0730096834058058,
+        1.0207462637043265,
+        1.2283251850664527,
+        1.084243750568841,
+        1.0351055809385148,
+        1.154397456330916,
+        1.118043470374738
+      ],
+      "calinski_harabasz": [
+        130.096246928434,
+        167.20169878942326,
+        175.4878349535403,
+        176.83079579769807,
+        180.1493270753899,
+        165.68741757088,
+        156.45672550081795
+      ]
+    },
+    "cluster_sizes": {
+      "0": 30,
+      "1": 141,
+      "2": 66,
+      "3": 182
+    },
+    "regimes": {
+      "0": "Rain-Shadow High-Volatility",
+      "1": "Interior Semi-Arid Transition",
+      "2": "Early Maritime & Western Ghats",
+      "3": "Core Interior Synchronized"
+    }
+  },
+  "dbscan": {
+    "selected_parameters": {
+      "eps": 1.6,
+      "min_samples": 5
+    },
+    "clusters_found": 2,
+    "noise_count": 39,
+    "noise_ratio": 0.09307875894988067,
+    "grid_results": [
+      {
+        "eps": 0.8,
+        "min_samples": 3,
+        "n_clusters": 10,
+        "n_noise": 129,
+        "noise_ratio": 0.3079,
+        "silhouette": -0.0834
+      },
+      {
+        "eps": 0.8,
+        "min_samples": 4,
+        "n_clusters": 5,
+        "n_noise": 150,
+        "noise_ratio": 0.358,
+        "silhouette": -0.0428
+      },
+      {
+        "eps": 0.8,
+        "min_samples": 5,
+        "n_clusters": 2,
+        "n_noise": 175,
+        "noise_ratio": 0.4177,
+        "silhouette": 0.2457
+      },
+      {
+        "eps": 0.8,
+        "min_samples": 6,
+        "n_clusters": 3,
+        "n_noise": 184,
+        "noise_ratio": 0.4391,
+        "silhouette": 0.1964
+      },
+      {
+        "eps": 0.8,
+        "min_samples": 8,
+        "n_clusters": 3,
+        "n_noise": 210,
+        "noise_ratio": 0.5012,
+        "silhouette": 0.1631
+      },
+      {
+        "eps": 0.8,
+        "min_samples": 10,
+        "n_clusters": 5,
+        "n_noise": 232,
+        "noise_ratio": 0.5537,
+        "silhouette": -0.1082
+      },
+      {
+        "eps": 1.0,
+        "min_samples": 3,
+        "n_clusters": 3,
+        "n_noise": 76,
+        "noise_ratio": 0.1814,
+        "silhouette": 0.1445
+      },
+      {
+        "eps": 1.0,
+        "min_samples": 4,
+        "n_clusters": 1,
+        "n_noise": 83,
+        "noise_ratio": 0.1981,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.0,
+        "min_samples": 5,
+        "n_clusters": 1,
+        "n_noise": 88,
+        "noise_ratio": 0.21,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.0,
+        "min_samples": 6,
+        "n_clusters": 1,
+        "n_noise": 89,
+        "noise_ratio": 0.2124,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.0,
+        "min_samples": 8,
+        "n_clusters": 3,
+        "n_noise": 110,
+        "noise_ratio": 0.2625,
+        "silhouette": 0.0052
+      },
+      {
+        "eps": 1.0,
+        "min_samples": 10,
+        "n_clusters": 3,
+        "n_noise": 131,
+        "noise_ratio": 0.3126,
+        "silhouette": 0.1423
+      },
+      {
+        "eps": 1.2,
+        "min_samples": 3,
+        "n_clusters": 4,
+        "n_noise": 52,
+        "noise_ratio": 0.1241,
+        "silhouette": 0.169
+      },
+      {
+        "eps": 1.2,
+        "min_samples": 4,
+        "n_clusters": 1,
+        "n_noise": 64,
+        "noise_ratio": 0.1527,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.2,
+        "min_samples": 5,
+        "n_clusters": 1,
+        "n_noise": 65,
+        "noise_ratio": 0.1551,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.2,
+        "min_samples": 6,
+        "n_clusters": 1,
+        "n_noise": 70,
+        "noise_ratio": 0.1671,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.2,
+        "min_samples": 8,
+        "n_clusters": 1,
+        "n_noise": 71,
+        "noise_ratio": 0.1695,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.2,
+        "min_samples": 10,
+        "n_clusters": 1,
+        "n_noise": 72,
+        "noise_ratio": 0.1718,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.4,
+        "min_samples": 3,
+        "n_clusters": 4,
+        "n_noise": 32,
+        "noise_ratio": 0.0764,
+        "silhouette": 0.1896
+      },
+      {
+        "eps": 1.4,
+        "min_samples": 4,
+        "n_clusters": 3,
+        "n_noise": 42,
+        "noise_ratio": 0.1002,
+        "silhouette": 0.3132
+      },
+      {
+        "eps": 1.4,
+        "min_samples": 5,
+        "n_clusters": 1,
+        "n_noise": 54,
+        "noise_ratio": 0.1289,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.4,
+        "min_samples": 6,
+        "n_clusters": 1,
+        "n_noise": 55,
+        "noise_ratio": 0.1313,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.4,
+        "min_samples": 8,
+        "n_clusters": 1,
+        "n_noise": 59,
+        "noise_ratio": 0.1408,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.4,
+        "min_samples": 10,
+        "n_clusters": 1,
+        "n_noise": 63,
+        "noise_ratio": 0.1504,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.6,
+        "min_samples": 3,
+        "n_clusters": 3,
+        "n_noise": 26,
+        "noise_ratio": 0.0621,
+        "silhouette": 0.2163
+      },
+      {
+        "eps": 1.6,
+        "min_samples": 4,
+        "n_clusters": 2,
+        "n_noise": 29,
+        "noise_ratio": 0.0692,
+        "silhouette": 0.435
+      },
+      {
+        "eps": 1.6,
+        "min_samples": 5,
+        "n_clusters": 2,
+        "n_noise": 39,
+        "noise_ratio": 0.0931,
+        "silhouette": 0.4361
+      },
+      {
+        "eps": 1.6,
+        "min_samples": 6,
+        "n_clusters": 1,
+        "n_noise": 45,
+        "noise_ratio": 0.1074,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.6,
+        "min_samples": 8,
+        "n_clusters": 1,
+        "n_noise": 48,
+        "noise_ratio": 0.1146,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.6,
+        "min_samples": 10,
+        "n_clusters": 1,
+        "n_noise": 49,
+        "noise_ratio": 0.1169,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.8,
+        "min_samples": 3,
+        "n_clusters": 3,
+        "n_noise": 20,
+        "noise_ratio": 0.0477,
+        "silhouette": 0.21
+      },
+      {
+        "eps": 1.8,
+        "min_samples": 4,
+        "n_clusters": 2,
+        "n_noise": 24,
+        "noise_ratio": 0.0573,
+        "silhouette": 0.4271
+      },
+      {
+        "eps": 1.8,
+        "min_samples": 5,
+        "n_clusters": 2,
+        "n_noise": 27,
+        "noise_ratio": 0.0644,
+        "silhouette": 0.4174
+      },
+      {
+        "eps": 1.8,
+        "min_samples": 6,
+        "n_clusters": 1,
+        "n_noise": 34,
+        "noise_ratio": 0.0811,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.8,
+        "min_samples": 8,
+        "n_clusters": 1,
+        "n_noise": 39,
+        "noise_ratio": 0.0931,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 1.8,
+        "min_samples": 10,
+        "n_clusters": 1,
+        "n_noise": 41,
+        "noise_ratio": 0.0979,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 2.0,
+        "min_samples": 3,
+        "n_clusters": 4,
+        "n_noise": 14,
+        "noise_ratio": 0.0334,
+        "silhouette": 0.2036
+      },
+      {
+        "eps": 2.0,
+        "min_samples": 4,
+        "n_clusters": 2,
+        "n_noise": 20,
+        "noise_ratio": 0.0477,
+        "silhouette": 0.4242
+      },
+      {
+        "eps": 2.0,
+        "min_samples": 5,
+        "n_clusters": 2,
+        "n_noise": 21,
+        "noise_ratio": 0.0501,
+        "silhouette": 0.4262
+      },
+      {
+        "eps": 2.0,
+        "min_samples": 6,
+        "n_clusters": 2,
+        "n_noise": 24,
+        "noise_ratio": 0.0573,
+        "silhouette": 0.4275
+      },
+      {
+        "eps": 2.0,
+        "min_samples": 8,
+        "n_clusters": 1,
+        "n_noise": 32,
+        "noise_ratio": 0.0764,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 2.0,
+        "min_samples": 10,
+        "n_clusters": 1,
+        "n_noise": 34,
+        "noise_ratio": 0.0811,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 2.2,
+        "min_samples": 3,
+        "n_clusters": 3,
+        "n_noise": 10,
+        "noise_ratio": 0.0239,
+        "silhouette": 0.1904
+      },
+      {
+        "eps": 2.2,
+        "min_samples": 4,
+        "n_clusters": 3,
+        "n_noise": 15,
+        "noise_ratio": 0.0358,
+        "silhouette": 0.4207
+      },
+      {
+        "eps": 2.2,
+        "min_samples": 5,
+        "n_clusters": 2,
+        "n_noise": 19,
+        "noise_ratio": 0.0453,
+        "silhouette": 0.4223
+      },
+      {
+        "eps": 2.2,
+        "min_samples": 6,
+        "n_clusters": 2,
+        "n_noise": 21,
+        "noise_ratio": 0.0501,
+        "silhouette": 0.4226
+      },
+      {
+        "eps": 2.2,
+        "min_samples": 8,
+        "n_clusters": 1,
+        "n_noise": 32,
+        "noise_ratio": 0.0764,
+        "silhouette": -1.0
+      },
+      {
+        "eps": 2.2,
+        "min_samples": 10,
+        "n_clusters": 1,
+        "n_noise": 32,
+        "noise_ratio": 0.0764,
+        "silhouette": -1.0
+      }
+    ]
+  },
+  "cross_algorithm_comparison": {
+    "ari_kmeans_vs_hierarchical": 0.6802587086553761,
+    "silhouette_kmeans_k4": 0.29866186719888416,
+    "silhouette_hierarchical_k4": 0.27442226411842935,
+    "davies_bouldin_kmeans_k4": 1.1947590956678373,
+    "davies_bouldin_hierarchical_k4": 1.2283251850664527,
+    "calinski_harabasz_kmeans_k4": 189.70792939023343,
+    "calinski_harabasz_hierarchical_k4": 175.4878349535403
+  },
+  "temporal_stability": {
+    "period_1_years": "2001-2011 (11 years)",
+    "period_2_years": "2012-2023 (12 years)",
+    "temporal_ari_k4": 0.265,
+    "temporal_ari_k3": 0.2682
+  }
+}

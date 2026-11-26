@@ -1,0 +1,446 @@
+{
+  "mumbai_benchmark": {
+    "evaluation_years": 23,
+    "missing_years": 0,
+    "mae_days": 5.826086956521739,
+    "bias_days": -5.217391304347826,
+    "year_by_year": [
+      {
+        "year": 2001,
+        "official_date": "2001-06-12",
+        "official_alt_date": "2001-06-07",
+        "official_source": "IMD Monsoon 2001 Report / MAUSAM 53(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2001-06-05",
+        "confirmed_date": "2001-06-05",
+        "error_days": -7,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2002,
+        "official_date": "2002-06-12",
+        "official_alt_date": "2002-06-22",
+        "official_source": "IMD Monsoon 2002 Report / MAUSAM 54(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2002-06-08",
+        "confirmed_date": "2002-06-08",
+        "error_days": -4,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2003,
+        "official_date": "2003-06-16",
+        "official_alt_date": "2003-06-19",
+        "official_source": "IMD Monsoon 2003 Report / MAUSAM 55(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2003-06-12",
+        "confirmed_date": "2003-06-12",
+        "error_days": -4,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2004,
+        "official_date": "2004-06-10",
+        "official_alt_date": "2004-06-16",
+        "official_source": "IMD Monsoon 2004 Report / MAUSAM 56(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2004-06-11",
+        "confirmed_date": "2004-06-11",
+        "error_days": 1,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2005,
+        "official_date": "2005-06-24",
+        "official_alt_date": "2005-06-08",
+        "official_source": "IMD Monsoon 2005 Report / MAUSAM 57(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2005-06-15",
+        "confirmed_date": "2005-06-15",
+        "error_days": -9,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2006,
+        "official_date": "2006-05-31",
+        "official_alt_date": "2006-06-08",
+        "official_source": "IMD Monsoon 2006 Report / MAUSAM 58(3)",
+        "declaration_type": "South Konkan advance / Mumbai city early surge",
+        "candidate_date": "2006-05-28",
+        "confirmed_date": "2006-05-28",
+        "error_days": -3,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2007,
+        "official_date": "2007-06-18",
+        "official_alt_date": "2007-06-06",
+        "official_source": "IMD Monsoon 2007 Report / MAUSAM 59(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2007-06-11",
+        "confirmed_date": "2007-06-11",
+        "error_days": -7,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2008,
+        "official_date": "2008-06-07",
+        "official_alt_date": "2008-06-04",
+        "official_source": "IMD Monsoon 2008 Report / MAUSAM 60(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2008-06-05",
+        "confirmed_date": "2008-06-05",
+        "error_days": -2,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2009,
+        "official_date": "2009-06-27",
+        "official_alt_date": "2009-06-28",
+        "official_source": "IMD Monsoon 2009 Report / MAUSAM 61(3)",
+        "declaration_type": "Subdivision NLM Declaration (Delayed)",
+        "candidate_date": "2009-06-22",
+        "confirmed_date": "2009-06-22",
+        "error_days": -5,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2010,
+        "official_date": "2010-06-14",
+        "official_alt_date": "2010-06-17",
+        "official_source": "IMD Monsoon 2010 Report / MAUSAM 62(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2010-06-06",
+        "confirmed_date": "2010-06-06",
+        "error_days": -8,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2011,
+        "official_date": "2011-06-05",
+        "official_alt_date": "2011-06-22",
+        "official_source": "IMD Monsoon 2011 Report / MAUSAM 63(3)",
+        "declaration_type": "RMC Mumbai City Declaration",
+        "candidate_date": "2011-06-01",
+        "confirmed_date": "2011-06-01",
+        "error_days": -4,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2012,
+        "official_date": "2012-06-17",
+        "official_alt_date": "2012-07-04",
+        "official_source": "IMD Monsoon 2012 Report / MAUSAM 64(3)",
+        "declaration_type": "RMC Mumbai preliminary advance",
+        "candidate_date": "2012-06-05",
+        "confirmed_date": "2012-06-05",
+        "error_days": -12,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2013,
+        "official_date": "2013-06-07",
+        "official_alt_date": "2013-06-11",
+        "official_source": "IMD Monsoon 2013 Report / MAUSAM 65(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2013-06-06",
+        "confirmed_date": "2013-06-06",
+        "error_days": -1,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2014,
+        "official_date": "2014-06-15",
+        "official_alt_date": "2014-07-06",
+        "official_source": "IMD Monsoon 2014 Report / MAUSAM 66(3)",
+        "declaration_type": "RMC Mumbai preliminary advance",
+        "candidate_date": "2014-06-12",
+        "confirmed_date": "2014-06-12",
+        "error_days": -3,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2015,
+        "official_date": "2015-06-12",
+        "official_alt_date": "2015-06-05",
+        "official_source": "IMD Monsoon 2015 Report / MAUSAM 67(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2015-06-10",
+        "confirmed_date": "2015-06-10",
+        "error_days": -2,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2016,
+        "official_date": "2016-06-20",
+        "official_alt_date": "2016-06-20",
+        "official_source": "IMD Monsoon 2016 Report / MAUSAM 68(3)",
+        "declaration_type": "Subdivision NLM Declaration (Delayed)",
+        "candidate_date": "2016-06-18",
+        "confirmed_date": "2016-06-18",
+        "error_days": -2,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2017,
+        "official_date": "2017-06-12",
+        "official_alt_date": "2017-06-12",
+        "official_source": "IMD Monsoon 2017 Report / MAUSAM 69(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2017-06-09",
+        "confirmed_date": "2017-06-09",
+        "error_days": -3,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2018,
+        "official_date": "2018-06-09",
+        "official_alt_date": "2018-06-09",
+        "official_source": "IMD Monsoon 2018 Report / MAUSAM 70(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2018-06-03",
+        "confirmed_date": "2018-06-03",
+        "error_days": -6,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2019,
+        "official_date": "2019-06-25",
+        "official_alt_date": "2019-06-25",
+        "official_source": "IMD Monsoon 2019 Report / MAUSAM 71(3)",
+        "declaration_type": "Subdivision NLM Declaration (Cyclone Vayu delay)",
+        "candidate_date": "2019-06-09",
+        "confirmed_date": "2019-06-09",
+        "error_days": -16,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2020,
+        "official_date": "2020-06-14",
+        "official_alt_date": "2020-06-14",
+        "official_source": "IMD Monsoon 2020 Report / MAUSAM 72(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2020-05-31",
+        "confirmed_date": "2020-05-31",
+        "error_days": -14,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2021,
+        "official_date": "2021-06-09",
+        "official_alt_date": "2021-06-09",
+        "official_source": "IMD Monsoon 2021 Report / MAUSAM 73(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2021-05-29",
+        "confirmed_date": "2021-05-29",
+        "error_days": -11,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2022,
+        "official_date": "2022-06-11",
+        "official_alt_date": "2022-06-11",
+        "official_source": "IMD Monsoon 2022 Report / MAUSAM 74(3)",
+        "declaration_type": "Subdivision NLM Declaration",
+        "candidate_date": "2022-06-17",
+        "confirmed_date": "2022-06-17",
+        "error_days": 6,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2023,
+        "official_date": "2023-06-25",
+        "official_alt_date": "2023-06-25",
+        "official_source": "IMD Monsoon 2023 Report / Press Bulletin",
+        "declaration_type": "Subdivision NLM Declaration (Cyclone Biparjoy delay)",
+        "candidate_date": "2023-06-21",
+        "confirmed_date": "2023-06-21",
+        "error_days": -4,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      }
+    ]
+  },
+  "pune_benchmark": {
+    "evaluation_years": 5,
+    "missing_years": 18,
+    "mae_days": 10.2,
+    "bias_days": -2.2,
+    "year_by_year": [
+      {
+        "year": 2019,
+        "official_date": "2019-06-24",
+        "official_source": "IMD Pune Weather Bulletin / Pai et al.",
+        "declaration_type": "City Observatory / Regional advance",
+        "candidate_date": "2019-06-09",
+        "confirmed_date": "2019-06-09",
+        "error_days": -15,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2020,
+        "official_date": "2020-06-11",
+        "official_source": "IMD Pune Weather Bulletin / Press Release",
+        "declaration_type": "City Observatory / Regional advance",
+        "candidate_date": "2020-06-01",
+        "confirmed_date": "2020-06-01",
+        "error_days": -10,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2021,
+        "official_date": "2021-06-05",
+        "official_source": "IMD Pune Weather Bulletin / Press Release",
+        "declaration_type": "City Observatory / Early advance",
+        "candidate_date": "2021-06-01",
+        "confirmed_date": "2021-06-01",
+        "error_days": -4,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2022,
+        "official_date": "2022-06-11",
+        "official_source": "IMD Pune Weather Bulletin / Press Release",
+        "declaration_type": "City Observatory / Normal advance",
+        "candidate_date": "2022-07-01",
+        "confirmed_date": "2022-07-01",
+        "error_days": 20,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      },
+      {
+        "year": 2023,
+        "official_date": "2023-06-24",
+        "official_source": "IMD Pune Weather Bulletin / Press Release",
+        "declaration_type": "City Observatory / Biparjoy delay",
+        "candidate_date": "2023-06-22",
+        "confirmed_date": "2023-06-22",
+        "error_days": -2,
+        "experienced_14d_break": false,
+        "rejected_candidates": 0
+      }
+    ]
+  },
+  "zone_comparison": {
+    "Western Ghats": {
+      "cell_count": 36,
+      "proposed_2tier": {
+        "median_doy": 156.0,
+        "median_calendar_date": "Jun 05",
+        "mean_doy": 156.82487922705315,
+        "std_days": 8.159610045616457,
+        "false_onset_pct": 0.12077294685990338,
+        "detection_rate_pct": 100.0
+      },
+      "uniform_30mm": {
+        "median_doy": 155.0,
+        "median_calendar_date": "Jun 04",
+        "mean_doy": 156.09541062801932,
+        "std_days": 7.815154867584614,
+        "false_onset_pct": 0.12077294685990338,
+        "detection_rate_pct": 100.0
+      }
+    },
+    "Konkan": {
+      "cell_count": 9,
+      "proposed_2tier": {
+        "median_doy": 159.0,
+        "median_calendar_date": "Jun 08",
+        "mean_doy": 160.09178743961354,
+        "std_days": 9.131158113617401,
+        "false_onset_pct": 0.4830917874396135,
+        "detection_rate_pct": 100.0
+      },
+      "uniform_30mm": {
+        "median_doy": 158.0,
+        "median_calendar_date": "Jun 07",
+        "mean_doy": 159.27053140096618,
+        "std_days": 7.839837029246797,
+        "false_onset_pct": 0.0,
+        "detection_rate_pct": 100.0
+      }
+    },
+    "Madhya Maharashtra": {
+      "cell_count": 149,
+      "proposed_2tier": {
+        "median_doy": 161.0,
+        "median_calendar_date": "Jun 10",
+        "mean_doy": 168.206937095826,
+        "std_days": 20.393500453669855,
+        "false_onset_pct": 9.483513276918586,
+        "detection_rate_pct": 99.27049897869857
+      },
+      "uniform_30mm": {
+        "median_doy": 162.0,
+        "median_calendar_date": "Jun 11",
+        "mean_doy": 169.6956906729634,
+        "std_days": 23.223474522881855,
+        "false_onset_pct": 9.775313685439158,
+        "detection_rate_pct": 98.86197840676977
+      }
+    },
+    "Marathwada": {
+      "cell_count": 91,
+      "proposed_2tier": {
+        "median_doy": 161.0,
+        "median_calendar_date": "Jun 10",
+        "mean_doy": 165.74964166268515,
+        "std_days": 13.696191892321334,
+        "false_onset_pct": 3.8222646918299095,
+        "detection_rate_pct": 100.0
+      },
+      "uniform_30mm": {
+        "median_doy": 163.0,
+        "median_calendar_date": "Jun 12",
+        "mean_doy": 167.4538939321548,
+        "std_days": 15.766372446645777,
+        "false_onset_pct": 3.8222646918299095,
+        "detection_rate_pct": 100.0
+      }
+    },
+    "Vidarbha": {
+      "cell_count": 134,
+      "proposed_2tier": {
+        "median_doy": 162.0,
+        "median_calendar_date": "Jun 11",
+        "mean_doy": 164.1818772328678,
+        "std_days": 8.755384345302616,
+        "false_onset_pct": 1.9143413367942892,
+        "detection_rate_pct": 99.9026606099935
+      },
+      "uniform_30mm": {
+        "median_doy": 163.0,
+        "median_calendar_date": "Jun 12",
+        "mean_doy": 165.28752436647173,
+        "std_days": 9.558148378945667,
+        "false_onset_pct": 2.4334847501622323,
+        "detection_rate_pct": 99.87021414665801
+      }
+    }
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "audit_phase": "Phase 8.1 - Advisory Engine Logic, Threshold and Data Provenance Audit",
+  "final_verdict": "READY WITH DOCUMENTED LIMITATIONS",
+  "rain_shadow_two_stage_trigger": {
+    "test_cases": {
+      "case_1_two_wet_days_inside_5d": {
+        "description": "Two rainy days inside 5-day window summing to 80 mm",
+        "expected_state": "RAINFALL CRITERIA MET",
+        "actual_state": "RAINFALL CRITERIA MET",
+        "qualifying_5d_wet_days": 2,
+        "cumulative_mm": 80.0,
+        "test_passed": true
+      },
+      "case_2_two_wet_days_outside_5d": {
+        "description": "Two rainy days separated by 8 dry days summing to 80 mm",
+        "expected_state": "CAUTION",
+        "actual_state": "CAUTION",
+        "qualifying_5d_wet_days": 1,
+        "cumulative_mm": 80.0,
+        "test_passed": true
+      },
+      "case_3_single_heavy_rain_day": {
+        "description": "Single heavy rainfall event (80 mm) without secondary rain",
+        "expected_state": "CAUTION",
+        "actual_state": "CAUTION",
+        "qualifying_5d_wet_days": 1,
+        "cumulative_mm": 80.0,
+        "test_passed": true
+      },
+      "case_4_exactly_75mm": {
+        "description": "Exactly 75.0 mm cumulative with 2 wet days within 5 days",
+        "expected_state": "RAINFALL CRITERIA MET",
+        "actual_state": "RAINFALL CRITERIA MET",
+        "qualifying_5d_wet_days": 2,
+        "cumulative_mm": 75.0,
+        "test_passed": true
+      },
+      "case_5_sub_threshold_74_9mm": {
+        "description": "Sub-threshold 74.9 mm cumulative rainfall",
+        "expected_state": "CAUTION",
+        "actual_state": "CAUTION",
+        "qualifying_5d_wet_days": 2,
+        "cumulative_mm": 74.9,
+        "test_passed": true
+      },
+      "case_6_missing_in_verification_window": {
+        "description": "Missing observation inside 5-day verification window (>=75mm candidate)",
+        "expected_state": "INSUFFICIENT DATA",
+        "actual_state": "INSUFFICIENT DATA",
+        "verification_window_has_missing": true,
+        "test_passed": true
+      }
+    },
+    "all_cases_passed": true,
+    "bug_status": "FIXED (Phase 8 seasonal rainy days bug resolved by strictly requiring qualifying_5d_wet_days >= 2)"
+  },
+  "cumulative_rainfall_definitions": {
+    "season_start_date": "June 1 (fixed agronomic Kharif start)",
+    "may_rainfall_handling": "Excluded by design. May pre-monsoon convective showers are high-evaporation ephemeral events not contributing to sustained profile recharge.",
+    "accumulation_type": "Continuous cumulative summation (np.cumsum) from June 1 through current date.",
+    "rolling_vs_cumulative": "Cumulative summation used for primary sowing triggers (50 mm / 75 mm); rolling 3-day and 5-day used for extreme precipitation hazard checks and dry spell tracking.",
+    "dry_spell_reset_limitation": {
+      "issue": "Continuous cumulative sum does not reset following extended dry spells.",
+      "scenario": "A 45 mm event on June 3 followed by 20 consecutive dry days (leading to complete topsoil desiccation) followed by 30 mm on June 24 reaches 75 mm cumulative total.",
+      "agronomic_risk": "Soil moisture from June 3 is completely lost via evaporation (ET0 > 5-7 mm/day). The 30 mm event is insufficient to wet the 15-20 cm root zone.",
+      "mitigating_controls": [
+        "Two-stage verification requires qualifying rainy days within a 5-day window, preventing isolated older events from satisfying the multi-day persistence criterion.",
+        "Active post-trigger dry spell monitoring evaluates consecutive dry days and triggers HIGH RISK if dry run >= 7 days.",
+        "Disclaimer explicitly warns that rainfall thresholds do not model profile evapotranspiration or matric potential."
+      ],
+      "required_production_enhancement": "Operational field deployment must integrate a 1D soil-water balance model (e.g. FAO-56 dual crop coefficient or SWAT) to dynamically track available water capacity (AWC)."
+    },
+    "imd_timestamping_standard": {
+      "daily_observation_cycle": "08:30 IST to 08:30 IST (24-hour accumulation).",
+      "reporting_timestamp": "Rainfall recorded on Date D represents rain fallen between 08:30 IST of D-1 and 08:30 IST of D.",
+      "operational_freshness_delay": "Gridded IMD data typically has a 24-48 hour latency. Automated Weather Station (AWS) data requires immediate quality check and QC filtering."
+    }
+  },
+  "historical_risk_metrics": {
+    "regime": "Rain-Shadow (Cluster 3, 42 grid cells, 966 cell-years)",
+    "historical_sample_period": "2001-2023 (23 years)",
+    "denominator_definitions": {
+      "total_cell_years": 966,
+      "triggered_50mm_cell_years": 869,
+      "triggered_50mm_proportion_pct": 89.96
+    },
+    "risk_metric_1_post_50mm_break": {
+      "statistic_name": "Historical Probability of >=10-Day Dry Break within 20 Days of 50 mm Trigger",
+      "numerator_cell_years": 340,
+      "denominator_cell_years": 869,
+      "calculated_rate_pct": 39.13,
+      "scientific_interpretation": "Empirical historical conditional frequency (1 in 2.5 years) under past climate. It is an actuarial risk metric, NOT a live forecast for the current season."
+    },
+    "risk_metric_2_unreached_75mm": {
+      "statistic_name": "Historical Frequency of Failing to Reach 75 mm Threshold by July 15",
+      "numerator_cell_years": 199,
+      "denominator_cell_years": 966,
+      "calculated_rate_pct": 20.6,
+      "scientific_interpretation": "In 20.60% of cell-years, 75 mm is not attained before July 15, requiring shift to contingency crops (Horsegram, Cowpea, Sunflower)."
+    },
+    "separation_validation": "CONFIRMED: 39.13% desiccation hazard is strictly separate from the 20.60% non-triggering frequency. Neither is presented as a predictive forecast."
+  },
+  "maritime_heavy_rainfall": {
+    "thresholds": {
+      "single_day_threshold_mm": 100.0,
+      "rolling_3day_threshold_mm": 200.0
+    },
+    "test_result": {
+      "advisory_state": "CAUTION",
+      "condition_name": "Heavy-Rainfall Hazard Indicator (Potential Waterlogging / Drainage Risk)",
+      "passed": false,
+      "has_hazard_indicator_label": true,
+      "disclaims_confirmed_waterlogging": true
+    },
+    "scientific_rationale": "High-intensity rainfall in Konkan creates drainage congestion and nursery submergence hazards. However, actual waterlogging depends on slope, soil percolation, and drainage ditch maintenance."
+  },
+  "data_provenance_tracking": {
+    "provenance_field_present": true,
+    "simulated_default": "Simulated Test Data",
+    "historical_replay": "Historical Replay (IMD 0.25\u00b0 Gridded 2001-2023)",
+    "aws_observed": "Observed Weather Station (AWS Mahavedh)",
+    "display_format_includes_provenance": true,
+    "audit_note": "Prevents confusing synthetic demonstration scenarios with actual real-time weather observations."
+  },
+  "agricultural_recommendations": {
+    "participating_institutions": [
+      "ICAR - Central Research Institute for Dryland Agriculture (CRIDA), Hyderabad",
+      "Mahatma Phule Krishi Vidyapeeth (MPKV), Rahuri (Scarcity & Western Maharashtra Zones)",
+      "Dr. Panjabrao Deshmukh Krishi Vidyapeeth (Dr. PDKV), Akola (Vidarbha Zone)",
+      "Vasantrao Naik Marathwada Krishi Vidyapeeth (VNMKV), Parbhani (Marathwada Zone)",
+      "Dr. Balasaheb Sawant Konkan Krishi Vidyapeeth (Dr. BSKKV), Dapoli (Konkan Maritime Zone)"
+    ],
+    "soil_depth_classifications": {
+      "shallow_soils": "< 30 cm depth: Low water holding capacity (< 50 mm/m). Sowing permitted only for low-water pearl millet, horsegram, moth bean.",
+      "medium_soils": "30 - 60 cm depth: Medium water holding capacity (100-150 mm/m). Soybean, Cotton, Pigeonpea.",
+      "deep_vertisols": "> 60 cm depth: High water holding capacity (180-220 mm/m). Requires >= 75 mm to wet top 15-20 cm due to high clay swelling and cracking."
+    },
+    "post_july15_contingency_handling": {
+      "trigger_date": "July 15 (Standard agronomic cutoff for primary Kharif crops in Maharashtra)",
+      "advisory_behavior": "Issues HIGH_RISK delayed sowing contingency advisory with explicit university alternative crop varieties.",
+      "cancellation_order_audit": "CONFIRMED: Engine DOES NOT issue an automated Kharif cancellation order. It recommends contingency varieties and soil moisture conservation.",
+      "university_contingency_varieties": {
+        "Rain-Shadow (MPKV Rahuri)": "Horsegram (Sina, Man), Cowpea (Phule Pandhari), Sunflower (Phule Bhaskar), Pearl Millet (Phule Aadishakti).",
+        "Marathwada (VNMKV Parbhani)": "Abort long-duration Bt Cotton / Soybean; plant short-duration Black gram (TAU-1), Green gram (BM-2003-2), Pigeonpea + Bajra (1:2).",
+        "Vidarbha (Dr. PDKV Akola)": "Contingency short-duration Pigeonpea (Asha, Maruti), Sesame (AKT-64), Sunflower (PKVSH-27).",
+        "Konkan (Dr. BSKKV Dapoli)": "Rice seedling re-nursery or community nurseries using early varieties (Karjat-3, Ratnagiri-1) if primary nurseries damaged."
+      }
+    }
+  },
+  "documented_operational_limitations": [
+    "Rainfall thresholds are precipitation accumulation markers, NOT direct measures of plant-available soil moisture (PAW).",
+    "Cumulative summation does not reset soil water balance following extended mid-season dry spells without an active soil water balance model.",
+    "Single convective thunderstorms are filtered via 5-day verification, but complex dry spells within Vertisol cracking zones require farm-level verification.",
+    "Historical risk metrics (39.13% break probability) represent 2001-2023 empirical climatology, NOT short-term numerical weather prediction (NWP) forecasts.",
+    "Precipitation hazard indicators (100 mm 1-day / 200 mm 3-day) do not evaluate local topography, drainage gradient, or ditch conditions."
+  ]
+}

@@ -1,0 +1,141 @@
+/* MonsoonIQ field guide: one dark survey-notebook palette shared by every page.
+   Three text roles, one accent, hairlines from the primary text colour, the
+   0.25° grid-cell square as the only marker. */
+.stApp:has(.guide-title) {
+    --fg-deep:#1a221f; --fg-bg:#202826; --fg-card:#28322e; --fg-raised:#313d38;
+    --fg-line:rgba(237,241,236,.10); --fg-line-strong:rgba(237,241,236,.18);
+    --fg-text:#edf1ec; --fg-text-2:#c4d0c8; --fg-text-3:#9db0a6;
+    --fg-accent:#86c9c2; --fg-accent-ink:#a8dbd4; --fg-pencil:#ffdf98;
+    --fg-sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --fg-mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
+    --fg-ease:cubic-bezier(.22,1,.36,1);
+    --miq-text:var(--fg-text); --miq-text-muted:var(--fg-text-2); --miq-muted:var(--fg-text-3);
+    --miq-subtle:var(--fg-text-3); --miq-line:var(--fg-line-strong); --miq-bg:var(--fg-bg);
+    --miq-cyan:var(--fg-accent); --miq-cyan-light:var(--fg-raised); --miq-panel:var(--fg-card);
+    background:var(--fg-bg); color:var(--fg-text); font-family:var(--fg-sans);
+}
+.stApp:has(.guide-title) [data-testid="stHeader"] {background:var(--fg-bg); border:0; color:var(--fg-text-2)}
+.stApp:has(.guide-title) [data-testid="stMainBlockContainer"] {max-width:1580px; padding:56px clamp(20px,3vw,48px) 40px}
+
+/* Sidebar: 16 padding, 40 rows, 2 between rows, labels 24 above and 8 below */
+.stApp:has(.guide-title) section[data-testid="stSidebar"] {background:var(--fg-deep) !important; max-height:100dvh; border-right:1px solid var(--fg-line)}
+.stApp:has(.guide-title) section[data-testid="stSidebar"][data-collapsed="false"] {
+    min-width:min(256px,85vw) !important; max-width:min(256px,85vw) !important;
+}
+.stApp:has(.guide-title) [data-testid="stSidebarContent"] {max-height:100dvh; overflow-y:auto; overscroll-behavior-y:contain; padding-inline:0}
+.stApp:has(.guide-title) [data-testid="stSidebarUserContent"] {padding:16px}
+.stApp:has(.guide-title) [data-testid="stSidebar"] {color:var(--fg-text-2)}
+.stApp:has(.guide-title) [data-testid="stSidebar"] h3 {font:500 13px/16px var(--fg-sans); color:var(--fg-text-3); margin:24px 0 8px; padding:0}
+.stApp:has(.guide-title) [data-testid="stSidebar"] hr {border-color:var(--fg-line); margin:24px 0 0}
+.stApp:has(.guide-title) [data-testid="stSidebar"] [data-testid="stWidgetLabel"] {padding:0 0 4px}
+.stApp:has(.guide-title) .miq-brand {padding:0 0 16px; border-bottom:1px solid var(--fg-line)}
+.stApp:has(.guide-title) .miq-brand-mark {font:600 18px/1.2 var(--fg-sans); color:var(--fg-text)}
+.stApp:has(.guide-title) .miq-brand-subtitle {color:var(--fg-text-3); font:13px/20px var(--fg-sans); margin-top:4px}
+.stApp:has(.guide-title) [data-testid="stRadio"] [role="radiogroup"] {gap:2px}
+.stApp:has(.guide-title) [data-testid="stRadioOption"] {
+    border-radius:4px; padding:8px; min-height:40px;
+    transition:background-color .15s var(--fg-ease)
+}
+.stApp:has(.guide-title) [data-testid="stRadioOption"] p {font:14px/20px var(--fg-sans); color:var(--fg-text-2); margin:0}
+.stApp:has(.guide-title) [data-testid="stRadioOption"]:hover {background:var(--fg-card)}
+.stApp:has(.guide-title) [data-testid="stRadioOption"][data-selected] {background:var(--fg-raised); box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.stApp:has(.guide-title) [data-testid="stRadioOption"][data-selected] p {color:var(--fg-text); font-weight:500}
+/* Keep the native radio input and use React Aria's focus and selection states. */
+.stApp:has(.guide-title) [data-testid="stRadioOption"] > div > div:first-child {background:var(--fg-bg); border-color:var(--fg-text-3)}
+.stApp:has(.guide-title) [data-testid="stRadioOption"][data-selected] > div > div:first-child {background:var(--fg-accent); border-color:var(--fg-accent)}
+.stApp:has(.guide-title) [data-testid="stRadioOption"][data-selected] > div > div:first-child > div {background:var(--fg-deep)}
+.stApp:has(.guide-title) [data-testid="stRadioOption"]:is([data-focus-visible],:has(input:focus-visible)) {outline:2px solid var(--fg-accent-ink); outline-offset:2px}
+
+/* Page title: Georgia for the one headline, sans for everything else */
+.guide-title {border-top:1px solid var(--fg-accent); padding:16px 0 8px}
+.guide-title div,.guide-record small,.atlas-title small,.guide-advice small {color:var(--fg-text-3); font:13px/20px var(--fg-sans)}
+.guide-title h1,.guide-record h2,.atlas-title h2 {
+    color:var(--fg-text); font:normal clamp(34px,3.4vw,48px)/1.08 Georgia,serif;
+    letter-spacing:-.02em; margin:8px 0; padding:0;
+}
+.guide-title p {font:14px/20px var(--fg-sans); color:var(--fg-text-2); margin:0}
+.atlas-title h2,.guide-record h2 {font-size:clamp(26px,2.3vw,34px); margin:4px 0 8px}
+
+/* Controls and disclosure */
+.stApp:has(.guide-title) [data-testid="stWidgetLabel"] p {color:var(--fg-text-2); font:500 13px/20px var(--fg-sans)}
+.stApp:has(.guide-title) [data-testid="stExpander"] details {background:transparent; color:var(--fg-text-2); border:1px solid var(--fg-line-strong); border-radius:6px; box-shadow:none}
+.stApp:has(.guide-title) [data-testid="stExpander"] summary {background:transparent; min-height:44px; transition:background-color .15s var(--fg-ease)}
+.stApp:has(.guide-title) [data-testid="stExpander"] summary:hover {background:var(--fg-card)}
+.stApp:has(.guide-title) [data-testid="stExpanderDetails"] {color:var(--fg-text-2)}
+.stApp:has(.guide-title) [data-baseweb="select"] > div {background:var(--fg-raised); color:var(--fg-text); border-radius:4px; min-height:44px}
+.stApp:has(.guide-title) [data-baseweb="select"] input {color:var(--fg-text)}
+.stApp:has(.guide-title) .react-aria-ComboBox > div {background:var(--fg-raised); color:var(--fg-text); border-color:var(--fg-line-strong); border-radius:4px; min-height:40px}
+.stApp:has(.guide-title) .react-aria-ComboBox :is(input,button) {color:var(--fg-text)}
+.st-key-guide_controls {padding-bottom:16px; border-bottom:1px solid var(--fg-line)}
+.st-key-guide_controls .react-aria-ComboBox > div {min-height:44px}
+.st-key-guide_controls [data-testid="stPopoverButton"] {min-height:44px; color:var(--fg-text); background:var(--fg-raised); border-color:var(--fg-line-strong); border-radius:4px}
+
+/* Overview spread: map left, record card right */
+.st-key-guide_spread [data-testid="stHorizontalBlock"] {flex-direction:row-reverse}
+.st-key-guide_atlas,.st-key-guide_record {min-width:0; gap:12px}
+.st-key-guide_record {background:var(--fg-card); border:1px solid var(--fg-line); border-radius:6px; padding:clamp(16px,1.4vw,24px)}
+.guide-record div {font:12px/16px var(--fg-mono); color:var(--fg-text-3)}
+.guide-advice {border-top:1px solid var(--fg-line); padding-top:12px; margin-top:4px}
+.guide-advice small {display:block}
+.guide-advice strong {display:flex; align-items:center; gap:8px; font:600 18px/24px var(--fg-sans); color:var(--fg-text); margin:4px 0 8px}
+.guide-advice strong::before {content:""; flex:none; width:10px; height:10px; background:var(--state, var(--fg-text-3))}
+.guide-advice p {margin:0; font:14px/20px var(--fg-sans); color:var(--fg-text-2)}
+.stApp:has(.guide-title) .guide-values {margin:0; padding:0}
+.guide-values div {display:flex; align-items:baseline; justify-content:space-between; gap:12px; border-top:1px solid var(--fg-line); padding:8px 0}
+.guide-values dt {font:13px/20px var(--fg-sans); color:var(--fg-text-3)}
+.guide-values dd {font:500 14px/20px var(--fg-sans); color:var(--fg-text); margin:0; text-align:right; font-variant-numeric:tabular-nums}
+.guide-values[aria-label] dd {white-space:nowrap}
+.st-key-guide_atlas [data-testid="stRadio"] label {min-height:40px}
+.st-key-guide_atlas [data-testid="stPlotlyChart"] {border:1px solid var(--fg-line); border-radius:6px; overflow:hidden}
+
+.stApp:has(.guide-title) .miq-cell-coords {margin-top:-8px; font:12px/16px var(--fg-mono); color:var(--fg-text-3); font-variant-numeric:tabular-nums}
+
+/* Sidebar selects fill the column so cell labels are not cut short */
+.stApp:has(.guide-title) [data-testid="stSidebar"] :is([data-testid="stElementContainer"],[data-testid="stSelectbox"],.react-aria-ComboBox) {width:100% !important; max-width:100%}
+
+/* Condition list: filled square passed, outlined square unmet */
+.stApp:has(.guide-title) .miq-conditions {list-style:none; margin:0; padding:0}
+.stApp:has(.guide-title) .miq-conditions li {padding:12px 0; border-top:1px solid var(--fg-line)}
+.stApp:has(.guide-title) .miq-conditions li:first-child {border-top:0; padding-top:0}
+.stApp:has(.guide-title) .miq-conditions .head {display:flex; align-items:center; gap:8px; color:var(--fg-text); font:500 14px/20px var(--fg-sans)}
+.stApp:has(.guide-title) .miq-conditions .head::before {content:""; flex:none; width:10px; height:10px; box-sizing:border-box; background:var(--fg-accent)}
+.stApp:has(.guide-title) .miq-conditions li.unmet .head::before {background:transparent; border:1.5px solid #e0705f}
+.stApp:has(.guide-title) .miq-conditions .verdict {margin-left:auto; color:var(--fg-text-3); font:13px/20px var(--fg-sans)}
+.stApp:has(.guide-title) .miq-conditions p {margin:4px 0 0 18px; font:13px/20px var(--fg-sans); color:var(--fg-text-2)}
+.stApp:has(.guide-title) .miq-conditions p.src {color:var(--fg-text-3)}
+
+/* Map key: the grid-cell square */
+.atlas-key b {color:var(--fg-text); font:500 14px/20px var(--fg-sans)}
+.atlas-key div {display:flex; flex-wrap:wrap; gap:8px 16px; padding-top:8px}
+.atlas-key span {display:inline-flex; align-items:center; gap:8px; color:var(--fg-text-2); font:13px/20px var(--fg-sans); font-variant-numeric:tabular-nums}
+.atlas-key i {flex:0 0 12px; height:12px; border:1px solid rgba(237,241,236,.28); box-sizing:border-box}
+.atlas-key .selected-square {border:2px solid var(--fg-pencil); background:transparent}
+
+/* Mobile menu button: the one filled accent control */
+.stApp:has(.guide-title) [data-testid="stExpandSidebarButton"] {
+    width:44px; height:44px; color:var(--fg-deep); background:var(--fg-accent);
+    border:1px solid var(--fg-accent-ink); border-radius:6px; transition:background-color .15s var(--fg-ease)
+}
+.stApp:has(.guide-title) [data-testid="stExpandSidebarButton"] span {color:inherit}
+.stApp:has(.guide-title) [data-testid="stExpandSidebarButton"]:hover {background:var(--fg-accent-ink)}
+.stApp:has(.guide-title) [data-testid="stExpandSidebarButton"]:focus-visible {outline:2px solid var(--fg-text); outline-offset:2px}
+
+/* Footer */
+.miq-footer {padding:24px 0 8px; border-top:1px solid var(--fg-line); margin-top:48px; text-align:center; color:var(--fg-text-3); font:13px/20px var(--fg-sans)}
+.miq-footer p {margin:0; color:inherit}
+
+@media(max-width:940px) {
+    .st-key-guide_spread [data-testid="stHorizontalBlock"] {flex-direction:column; align-items:stretch}
+    .st-key-guide_spread [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] {width:100%; flex:auto}
+}
+@media(max-width:640px) {
+    .stApp:has(.guide-title) [data-testid="stMainBlockContainer"] {padding:56px 16px 24px}
+    .guide-title {padding:8px 0 0}
+    .guide-title h1 {font-size:34px; margin:4px 0}
+    .st-key-guide_controls [data-testid="stHorizontalBlock"] {display:grid; grid-template-columns:1fr 1fr auto; gap:8px}
+    .st-key-guide_controls [data-testid="stColumn"] {width:100%; min-width:0}
+    .st-key-guide_controls [data-testid="stColumn"]:first-child {grid-column:1/-1}
+}
+@media(prefers-reduced-motion:reduce) {
+    .stApp:has(.guide-title) *, .stApp:has(.guide-title) *::after {animation:none !important; transition:none !important; scroll-behavior:auto !important}
+}

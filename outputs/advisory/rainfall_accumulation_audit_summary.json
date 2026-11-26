@@ -1,0 +1,106 @@
+{
+  "audit_phase": "Phase 8.2 - Final Rainfall Accumulation and Trigger Consistency Audit",
+  "final_verdict": "READY WITH DOCUMENTED LIMITATIONS",
+  "all_scenarios_passed": true,
+  "scenarios": {
+    "scenario_1_early_60mm_18d_dry_two_small_rainy_days": {
+      "description": "60 mm accumulated early in June, followed by 18 consecutive dry days, followed by two small rainy days (8 mm + 8 mm)",
+      "expected_state": "CAUTION",
+      "actual_state": "CAUTION",
+      "seasonal_cumulative_rainfall_mm": 76.0,
+      "effective_active_cycle_rainfall_mm": 16.0,
+      "has_intervening_prolonged_dry_spell": true,
+      "max_intervening_dry_spell_days": 18,
+      "reasoning": "Rain-Shadow Root-Zone Moisture Depletion Alert: Cumulative rainfall since June 1 is 76.0 mm, BUT an intervening prolonged dry spell of 18 consecutive dry days occurred between earlier rainfall (60.0 mm) and recent showers (16.0 mm). Under high summer evaporative demand (ET0 > 5 mm/day), moisture from early June has completely evaporated from the Vertisol root zone. Recent rainfall (16.0 mm) is insufficient to wet the 15-20 cm seedbed. Sowing now risks severe seedling desiccation.",
+      "test_passed": true
+    },
+    "scenario_2_early_60mm_recent_5d_below_75mm": {
+      "description": "60 mm early rainfall followed by two recent rainy days, where recent 5-day total is 20 mm (< 75 mm)",
+      "expected_state": "CAUTION",
+      "actual_state": "CAUTION",
+      "seasonal_cumulative_rainfall_mm": 80.0,
+      "recent_5day_rainfall_mm": 20.0,
+      "effective_active_cycle_rainfall_mm": 20.0,
+      "reasoning": "Rain-Shadow Root-Zone Moisture Depletion Alert: Cumulative rainfall since June 1 is 80.0 mm, BUT an intervening prolonged dry spell of 19 consecutive dry days occurred between earlier rainfall (60.0 mm) and recent showers (20.0 mm). Under high summer evaporative demand (ET0 > 5 mm/day), moisture from early June has completely evaporated from the Vertisol root zone. Recent rainfall (20.0 mm) is insufficient to wet the 15-20 cm seedbed. Sowing now risks severe seedling desiccation.",
+      "test_passed": true
+    },
+    "scenario_3_sustained_75mm_qualifying_window": {
+      "description": "75 mm accumulated within defined qualifying window across at least two rainy days (40 mm + 40 mm)",
+      "expected_state": "RAINFALL CRITERIA MET",
+      "actual_state": "RAINFALL CRITERIA MET",
+      "seasonal_cumulative_rainfall_mm": 80.0,
+      "qualifying_5d_wet_days": 2,
+      "reasoning": "Experimental rainfall threshold achieved (80.0 mm >= 75.0 mm) with 2 wet days. Note: This indicates historical rainfall accumulation criteria have been satisfied; it does NOT guarantee crop establishment.",
+      "test_passed": true
+    },
+    "scenario_4_single_heavy_rain_day_80mm": {
+      "description": "80 mm falling on one day only without secondary rainfall",
+      "expected_state": "CAUTION",
+      "actual_state": "CAUTION",
+      "seasonal_cumulative_rainfall_mm": 80.0,
+      "qualifying_5d_wet_days": 1,
+      "reasoning": "Rain-Shadow Two-Stage Verification Rule: Cumulative rainfall reached 80.0 mm, but only 1 wet day(s) occurred within any 5-day verification window (requires >= 2 distinct rainy days >= 2.5 mm). Suggests an isolated convective thunderstorm rather than sustained monsoon flow.",
+      "test_passed": true
+    },
+    "scenario_5_two_wet_days_separated_by_gt_5_days": {
+      "description": "Two qualifying rainy days (40 mm each) separated by 8 dry days",
+      "expected_state": "CAUTION",
+      "actual_state": "CAUTION",
+      "seasonal_cumulative_rainfall_mm": 80.0,
+      "qualifying_5d_wet_days": 1,
+      "reasoning": "Rain-Shadow Two-Stage Verification Rule: Cumulative rainfall reached 80.0 mm, but only 1 wet day(s) occurred within any 5-day verification window (requires >= 2 distinct rainy days >= 2.5 mm). Suggests an isolated convective thunderstorm rather than sustained monsoon flow.",
+      "test_passed": true
+    },
+    "scenario_6_missing_observation_in_qualifying_window": {
+      "description": "Missing rainfall observation on Day 2 inside the 5-day verification window",
+      "expected_state": "INSUFFICIENT DATA",
+      "actual_state": "INSUFFICIENT DATA",
+      "verification_window_has_missing": true,
+      "reasoning": "Missing or unverified rainfall observations occurred inside the 5-day verification window. Cannot confirm whether qualifying rainfall criteria were met without complete observations.",
+      "test_passed": true
+    },
+    "scenario_7_boundary_conditions_75mm_vs_74_9mm": {
+      "description": "Boundary evaluation: exactly 75.0 mm (met) vs sub-threshold 74.9 mm (caution)",
+      "expected_state_75_0mm": "RAINFALL CRITERIA MET",
+      "actual_state_75_0mm": "RAINFALL CRITERIA MET",
+      "expected_state_74_9mm": "CAUTION",
+      "actual_state_74_9mm": "CAUTION",
+      "actual_75_0mm_val": 75.0,
+      "actual_74_9mm_val": 74.9,
+      "test_passed": true
+    }
+  },
+  "accumulation_semantics": {
+    "question_1_cumulative_vs_rolling": {
+      "question": "Whether 75 mm means cumulative rainfall since June 1 or rainfall within a rolling window.",
+      "operational_reality": "In the baseline architecture, 75 mm is calculated as continuous cumulative rainfall from June 1 (fixed agronomic origin: np.cumsum). Rolling 3-day and 5-day windows are computed in parallel for short-term intensity and verification checks.",
+      "scientific_implication": "Using continuous cumulative rainfall preserves climatological consistency with historical IMD analyses. However, without a dry-spell reset, it risks counting long-evaporated moisture toward seedbed readiness."
+    },
+    "question_2_cotemporality_of_threshold_and_persistence": {
+      "question": "Whether the 75 mm threshold and two-wet-day persistence condition are evaluated over the same period.",
+      "operational_reality": "In Phase 8 baseline, they were evaluated over DIFFERENT periods: cumulative 75 mm spanned the entire season (June 1 to current date), whereas the two-wet-day persistence condition was evaluated over a rolling 5-day window around the candidate trigger.",
+      "scientific_implication": "Evaluating them over different periods created the vulnerability where 60 mm from 20 days ago satisfied cumulative 75 mm when paired with two 8 mm showers today. Phase 8.2 resolves this by enforcing that active root-zone accumulation resets if an intervening prolonged dry break (>= 10 days) occurred."
+    },
+    "question_3_five_day_window_positioning": {
+      "question": "How the five-day window is positioned relative to the candidate trigger.",
+      "operational_reality": "The engine scans all 5-day slices overlapping or containing the candidate trigger date t0: from start_k = max(0, t0_idx - 4) to end_k = min(total_days - 4, t0_idx + 1). The maximum count of qualifying wet days (>= 2.5 mm) within these slices is assigned as qualifying_5d_wet_days.",
+      "scientific_implication": "This sliding multi-window check ensures that a storm sequence beginning 2-3 days before crossing 75 mm and concluding on or after t0 is correctly credited with sustained persistence."
+    },
+    "question_4_old_rainfall_contribution": {
+      "question": "Whether old rainfall can contribute to a new trigger after a prolonged dry spell.",
+      "operational_reality": "In Phase 8 baseline, old rainfall DID contribute without penalty. In Phase 8.2, this is PREVENTED: If an intervening prolonged dry spell of >= 10 consecutive dry days occurs after prior rain, prior moisture is marked as depleted by evaporation. The effective active wetting cycle resets, requiring >= 75 mm in the active pulse.",
+      "scientific_implication": "Prevents catastrophic seedling desiccation in cracking Vertisols where topsoil dries out within 5-7 days under summer evaporative demand (ET0 > 5 mm/day)."
+    },
+    "question_5_dry_spell_reset_mechanics": {
+      "question": "Whether a dry-spell reset exists. If not, document the limitation clearly.",
+      "operational_reality": "A discrete dry-spell reset mechanism is now formally implemented in rainfall_monitor.py and decision_engine.py using a 10-day consecutive dry day threshold (had_prior_rain and running_dry_days >= 10).",
+      "documented_limitation": "A 10-day discrete reset is an effective operational heuristic for summer Kharif onset in Vertisols. However, it does not dynamically model intermediate evaporative decay (e.g. 7 or 8 dry days) or varying soil water holding capacities across shallow vs deep soil series. Operational field deployment should ultimately couple this heuristic with a continuous 1D soil-water balance model (e.g. FAO-56 dual crop coefficient)."
+    }
+  },
+  "documented_limitations_and_remaining_risks": [
+    "Discrete 10-Day Reset vs Continuous Decay: The 10-day dry spell reset acts as an agronomic step-function. It does not continuously decrement root-zone moisture during shorter dry intervals (5-9 days).",
+    "Soil Texture Generalization: The 75 mm threshold is optimized for heavy cracking Vertisols (MPKV Scarcity Zone guidelines). Coarser Inceptisols or shallow soils (< 30 cm) have different infiltration dynamics and lower water retention.",
+    "Topographic Micro-drainage: The advisory engine assumes regional weather station representativeness and does not account for field slope, bunding, or localized run-on/run-off.",
+    "Historical Baseline Preservation: Continuous cumulative summation from June 1 without resets remains the primary definition used in historical baselines (2001-2023) to avoid rewriting published Phase 5B/6/7.1 climatological outputs."
+  ]
+}

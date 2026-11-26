@@ -1,0 +1,237 @@
+{
+  "audit_metadata": {
+    "project": "MonsoonIQ",
+    "phase": "Phase 7.1 Sowing Trigger, Agricultural Evidence and Scientific Consistency Audit",
+    "timestamp": "2026-11-22T16:36:31.622227",
+    "random_state": 42,
+    "total_grid_cells": 419,
+    "total_years": 23,
+    "total_cell_years": 9637
+  },
+  "delayed_sowing_audit": [
+    {
+      "regime": "Core Interior Synchronized",
+      "grid_cells": 215,
+      "cell_percentage": 51.31,
+      "total_cell_years": 4945,
+      "on_time_june_count": 4559,
+      "on_time_june_pct": 92.19,
+      "delayed_july_1_15_count": 330,
+      "delayed_july_1_15_pct": 6.67,
+      "never_reached_july15_count": 56,
+      "never_reached_july15_pct": 1.13,
+      "total_delayed_count": 386,
+      "total_delayed_cell_year_pct": 7.81,
+      "cell_average_delay_pct": 7.81,
+      "median_trigger_doy_reached": 169.0,
+      "mean_trigger_doy_reached": 169.43
+    },
+    {
+      "regime": "Rain-Shadow High-Volatility",
+      "grid_cells": 42,
+      "cell_percentage": 10.02,
+      "total_cell_years": 966,
+      "on_time_june_count": 730,
+      "on_time_june_pct": 75.57,
+      "delayed_july_1_15_count": 139,
+      "delayed_july_1_15_pct": 14.39,
+      "never_reached_july15_count": 97,
+      "never_reached_july15_pct": 10.04,
+      "total_delayed_count": 236,
+      "total_delayed_cell_year_pct": 24.43,
+      "cell_average_delay_pct": 24.43,
+      "median_trigger_doy_reached": 165.0,
+      "mean_trigger_doy_reached": 168.45
+    },
+    {
+      "regime": "Early Maritime & Western Ghats",
+      "grid_cells": 65,
+      "cell_percentage": 15.51,
+      "total_cell_years": 1495,
+      "on_time_june_count": 1456,
+      "on_time_june_pct": 97.39,
+      "delayed_july_1_15_count": 36,
+      "delayed_july_1_15_pct": 2.41,
+      "never_reached_july15_count": 3,
+      "never_reached_july15_pct": 0.2,
+      "total_delayed_count": 39,
+      "total_delayed_cell_year_pct": 2.61,
+      "cell_average_delay_pct": 2.61,
+      "median_trigger_doy_reached": 162.0,
+      "mean_trigger_doy_reached": 163.51
+    },
+    {
+      "regime": "Interior Semi-Arid Transition",
+      "grid_cells": 97,
+      "cell_percentage": 23.15,
+      "total_cell_years": 2231,
+      "on_time_june_count": 1798,
+      "on_time_june_pct": 80.59,
+      "delayed_july_1_15_count": 379,
+      "delayed_july_1_15_pct": 16.99,
+      "never_reached_july15_count": 54,
+      "never_reached_july15_pct": 2.42,
+      "total_delayed_count": 433,
+      "total_delayed_cell_year_pct": 19.41,
+      "cell_average_delay_pct": 19.41,
+      "median_trigger_doy_reached": 172.0,
+      "mean_trigger_doy_reached": 171.77
+    },
+    {
+      "regime": "Maharashtra Statewide",
+      "grid_cells": 419,
+      "cell_percentage": 100.0,
+      "total_cell_years": 9637,
+      "on_time_june_count": 8543,
+      "on_time_june_pct": 88.65,
+      "delayed_july_1_15_count": 884,
+      "delayed_july_1_15_pct": 9.17,
+      "never_reached_july15_count": 210,
+      "never_reached_july15_pct": 2.18,
+      "total_delayed_count": 1094,
+      "total_delayed_cell_year_pct": 11.35,
+      "cell_average_delay_pct": 11.35,
+      "median_trigger_doy_reached": 167.0,
+      "mean_trigger_doy_reached": 168.94
+    }
+  ],
+  "rain_shadow_anomaly_diagnosis": {
+    "anomaly_statement": "Rain Shadow reached 50 mm trigger at DOY 166.1 (June 15) vs Core Interior at DOY 168.4 (June 17-18) despite receiving 36% less June rainfall.",
+    "primary_causes": [
+      "Survivor/Selection Bias: In Phase 7, np.nanmedian dropped cell-years failing to reach 50 mm. In Rain Shadow, 10.04% of years never reached 50 mm by July 15 and 14.39% were delayed into July. Dropping unreached years artificially accelerated the apparent median.",
+      "Episodic Pre-Monsoon Convective Storms: In Rain Shadow, the single wettest day accounts for 57.3% of the 50 mm trigger (mean max 1-day rain = 28.66 mm over just 2.6 rainy days), delivering rain in intense, isolated bursts rather than synoptic monsoon progression.",
+      "High Post-Trigger Break Risk: Within 20 days post-trigger, Rain Shadow suffers a >= 10-day severe dry spell in 39.13% of triggered years (and >= 7-day break in 61.22% of years), compared to only 12.56% and 34.02% in Core Interior.",
+      "Rolling Window Reachability Failure: When tested on rolling 3-day and 5-day windows, Rain Shadow reaches 50 mm in only 44.0% and 58.6% of cell-years, proving lack of organized multi-day wetting events."
+    ],
+    "regime_anomaly_metrics": {
+      "Core Interior Synchronized": {
+        "triggered_cell_years": 4889,
+        "median_trigger_doy": 169.0,
+        "mean_trigger_doy": 169.43,
+        "mean_rainy_days_to_trigger": 4.66,
+        "mean_max_1day_rain": 30.01,
+        "pct_50mm_from_1day_max": 60.03,
+        "mean_immediate_dry_spell_days": 1.32,
+        "post_trigger_10d_break_prob_pct": 12.52,
+        "post_trigger_7d_break_prob_pct": 35.61,
+        "mean_rain_next_5d_mm": 54.72,
+        "mean_rain_next_10d_mm": 98.81
+      },
+      "Rain-Shadow High-Volatility": {
+        "triggered_cell_years": 869,
+        "median_trigger_doy": 165.0,
+        "mean_trigger_doy": 168.45,
+        "mean_rainy_days_to_trigger": 4.35,
+        "mean_max_1day_rain": 28.66,
+        "pct_50mm_from_1day_max": 57.32,
+        "mean_immediate_dry_spell_days": 2.99,
+        "post_trigger_10d_break_prob_pct": 39.13,
+        "post_trigger_7d_break_prob_pct": 65.59,
+        "mean_rain_next_5d_mm": 23.51,
+        "mean_rain_next_10d_mm": 40.21
+      },
+      "Early Maritime & Western Ghats": {
+        "triggered_cell_years": 1492,
+        "median_trigger_doy": 162.0,
+        "mean_trigger_doy": 163.51,
+        "mean_rainy_days_to_trigger": 4.13,
+        "mean_max_1day_rain": 36.38,
+        "pct_50mm_from_1day_max": 72.76,
+        "mean_immediate_dry_spell_days": 0.8,
+        "post_trigger_10d_break_prob_pct": 7.04,
+        "post_trigger_7d_break_prob_pct": 18.83,
+        "mean_rain_next_5d_mm": 101.6,
+        "mean_rain_next_10d_mm": 222.94
+      },
+      "Interior Semi-Arid Transition": {
+        "triggered_cell_years": 2177,
+        "median_trigger_doy": 172.0,
+        "mean_trigger_doy": 171.77,
+        "mean_rainy_days_to_trigger": 4.63,
+        "mean_max_1day_rain": 29.62,
+        "pct_50mm_from_1day_max": 59.23,
+        "mean_immediate_dry_spell_days": 1.64,
+        "post_trigger_10d_break_prob_pct": 24.99,
+        "post_trigger_7d_break_prob_pct": 48.64,
+        "mean_rain_next_5d_mm": 37.58,
+        "mean_rain_next_10d_mm": 66.65
+      }
+    }
+  },
+  "validation_variables_classification": {
+    "category_A_raw_rainfall_derived": [
+      "june_mean_rainfall_mm",
+      "june_rainfall_cv_pct",
+      "jj_mean_rainfall_mm",
+      "may_mean_rainfall_mm",
+      "june_mean_wet_days"
+    ],
+    "category_B_mathematically_or_causally_linked": [
+      "early_dry_spell_mean_days",
+      "early_dry_spell_max_days",
+      "severe_dry_spell_10d_freq",
+      "onset_std_p1_2001_2011",
+      "onset_std_p2_2012_2023"
+    ],
+    "category_C_external_agronomic_indicators": [
+      "sowing_delay_past_july1_freq",
+      "never_reached_july15_freq",
+      "rolling_window_event_reachability_pct",
+      "post_trigger_10d_break_prob_pct",
+      "immediate_post_trigger_dry_spell_days"
+    ],
+    "methodological_critique": "Phase 7 variables provided robust empirical support for regime differentiation, but Category A and B metrics shared substantial mutual information with clustering inputs. The truly independent agricultural validation rests on Category C metrics (delayed sowing frequency and post-trigger break risk)."
+  },
+  "institutional_evidence": [
+    {
+      "institution": "ICAR-CRIDA (Central Research Institute for Dryland Agriculture, Hyderabad)",
+      "publication_title": "Agricultural Contingency Plan for District: Solapur (State: Maharashtra)",
+      "year": 2014,
+      "url_or_reference": "https://crida.icar.gov.in/CP-2012/State/Maharashtra/MH-6-Solapur-22.12.2014.pdf",
+      "recommended_window": "Late June to July 15 for Kharif (if delayed, transition to Rabi)",
+      "rainfall_criteria": "Minimum 50-75 mm cumulative rainfall wetting top 15 cm soil layer",
+      "target_crops": "Pearl Millet (Bajra ICTP-8203, Shradha), Pigeonpea (Vipula, BSMR-736), Sunflower (Phule Bhaskar)",
+      "soil_and_irrigation_context": "Western Maharashtra Scarcity Zone (MH-6); shallow to medium Vertisols/Inceptisols; 85% rainfed. Highly Rabi-dependent."
+    },
+    {
+      "institution": "MPKV Rahuri (Mahatma Phule Krishi Vidyapeeth, Rahuri)",
+      "publication_title": "Dryland Farming Technology & Kharif Contingency Crop Planning for Scarcity Zone",
+      "year": 2021,
+      "url_or_reference": "https://mpkv.ac.in/Research/DrylandAgriculture/Technologies",
+      "recommended_window": "June 15 to July 7; strict cessation after July 15",
+      "rainfall_criteria": "75 mm Rule: Minimum 75 mm soaking monsoon rain wetting 15-20 cm root zone before sowing",
+      "target_crops": "Bajra (Phule Aadishakti), Red Gram (Phule Rajeshwari), Soybean (Phule Sangam - irrigated/transition only)",
+      "soil_and_irrigation_context": "Rain-Shadow Scarcity Zone; heavy cracking Vertisols; dryland rainfed farming prone to seedling desiccation."
+    },
+    {
+      "institution": "VNMKV Parbhani (Vasantrao Naik Marathwada Krishi Vidyapeeth, Parbhani)",
+      "publication_title": "Kharif Crop Production Technologies & Sowing Advisories for Marathwada",
+      "year": 2022,
+      "url_or_reference": "https://www.vnmkv.ac.in/extension/agrometeorology-advisories",
+      "recommended_window": "June 20 to July 10",
+      "rainfall_criteria": "75 mm to 100 mm cumulative monsoon rainfall to prevent re-sowing risk",
+      "target_crops": "Soybean (MAUS-71, MAUS-158, MAUS-162), Cotton (Bt hybrids), Pigeonpea (BDN-711)",
+      "soil_and_irrigation_context": "Deep Black Cotton Soils (Vertisols) with high water retention but high initial swelling requirement."
+    },
+    {
+      "institution": "Dr. PDKV Akola (Dr. Panjabrao Deshmukh Krishi Vidyapeeth, Akola)",
+      "publication_title": "Package of Practices for Kharif Crops of Vidarbha Region",
+      "year": 2020,
+      "url_or_reference": "https://www.pdkv.ac.in/wp-content/uploads/2020/06/Kharif-POP.pdf",
+      "recommended_window": "June 15 to June 30 (Normal); up to July 15 (Delayed)",
+      "rainfall_criteria": "75 mm to 100 mm cumulative rainfall before sowing in heavy soils",
+      "target_crops": "Soybean (JS-335, JS-93-05, PDKV AMS-100-39), Cotton (AKH-081), Tur (PKV Tara)",
+      "soil_and_irrigation_context": "Core Vidarbha Vertisols; synchronized onset allows reliable early sowing with low break risk."
+    }
+  ],
+  "phase_8_decision": {
+    "decision": "CONDITIONAL GO",
+    "justification": "The four K-Means K=4 regimes demonstrate strong, statistically verified agronomic differentiation. However, a naive single-threshold 50 mm trigger cannot be used directly in farmer-facing advisories for the Rain Shadow due to severe false-triggering risk (39.1% probability of 10-day post-trigger dry spell).",
+    "mandatory_phase_8_constraints": [
+      "Adopt MPKV Rahuri's '75 mm Rule' for Scarcity Zone: Rainfed sowing in Rain Shadow must require >= 75 mm cumulative rainfall.",
+      "Implement a Two-Stage Trigger Rule: Require cumulative rainfall threshold PLUS a minimum of 2 wet days within 5 days to confirm sustained monsoon activity before issuing a sowing green signal.",
+      "Provide Explicit Post-Sowing Break Warnings: Flag high desiccation risk in Rain Shadow advisories and promote contingent cropping (Bajra/Pigeonpea intercropping or transition to Rabi).",
+      "Soil-Specific Stratification: Distinguish heavy Vertisols (requiring 75-100 mm) from shallow Inceptisols in advisory recommendations."
+    ]
+  }
+}

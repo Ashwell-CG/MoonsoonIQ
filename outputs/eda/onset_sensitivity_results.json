@@ -1,0 +1,769 @@
+{
+  "benchmark_ground_truth": {
+    "mumbai_imd_declarations": {
+      "2001": "2001-06-07",
+      "2002": "2002-06-07",
+      "2003": "2003-06-09",
+      "2004": "2004-06-07",
+      "2005": "2005-06-08",
+      "2006": "2006-06-08",
+      "2007": "2007-06-06",
+      "2008": "2008-06-04",
+      "2009": "2009-06-27",
+      "2010": "2010-06-14",
+      "2011": "2011-06-05",
+      "2012": "2012-06-17",
+      "2013": "2013-06-07",
+      "2014": "2014-06-15",
+      "2015": "2015-06-12",
+      "2016": "2016-06-20",
+      "2017": "2017-06-12",
+      "2018": "2018-06-09",
+      "2019": "2019-06-25",
+      "2020": "2020-06-14",
+      "2021": "2021-06-09",
+      "2022": "2022-06-11",
+      "2023": "2023-06-25"
+    },
+    "pune_imd_declarations": {
+      "2019": "2019-06-24",
+      "2020": "2020-06-11",
+      "2021": "2021-06-05",
+      "2022": "2022-06-11",
+      "2023": "2023-06-24"
+    }
+  },
+  "experiments": [
+    {
+      "config": {
+        "id": "EXP_START_MAY15",
+        "start_m": 5,
+        "start_d": 15,
+        "win": 5,
+        "thresh": 30.0,
+        "wet": 2,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 6.3478260869565215,
+      "mumbai_bias_days": -4.086956521739131,
+      "pune_mae_days": 11.2,
+      "pune_bias_days": -3.2,
+      "statewide_false_onset_pct": 2.3970115181072944,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 158.30434782608697,
+          "mean_calendar_date": "Jun 07",
+          "std_days": 9.505611382918774
+        },
+        "Western Ghats": {
+          "mean_doy": 154.72946859903382,
+          "mean_calendar_date": "Jun 03",
+          "std_days": 9.25350181568463
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 166.9386737089202,
+          "mean_calendar_date": "Jun 15",
+          "std_days": 22.038686261609733
+        },
+        "Marathwada": {
+          "mean_doy": 166.0358337314859,
+          "mean_calendar_date": "Jun 15",
+          "std_days": 15.228570862248246
+        },
+        "Vidarbha": {
+          "mean_doy": 164.67089018843404,
+          "mean_calendar_date": "Jun 13",
+          "std_days": 9.576910921289244
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_START_MAY25",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 30.0,
+        "wet": 2,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 5.739130434782608,
+      "mumbai_bias_days": -3.4782608695652173,
+      "pune_mae_days": 11.2,
+      "pune_bias_days": -3.2,
+      "statewide_false_onset_pct": 2.2517380927674586,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 159.27053140096618,
+          "mean_calendar_date": "Jun 08",
+          "std_days": 7.839837029246797
+        },
+        "Western Ghats": {
+          "mean_doy": 156.06884057971016,
+          "mean_calendar_date": "Jun 05",
+          "std_days": 7.5631860160725655
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 168.03550469483568,
+          "mean_calendar_date": "Jun 17",
+          "std_days": 21.441307484542346
+        },
+        "Marathwada": {
+          "mean_doy": 166.6383182035356,
+          "mean_calendar_date": "Jun 15",
+          "std_days": 14.874522269548333
+        },
+        "Vidarbha": {
+          "mean_doy": 165.02469135802468,
+          "mean_calendar_date": "Jun 14",
+          "std_days": 9.226380438170775
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_START_JUN01",
+        "start_m": 6,
+        "start_d": 1,
+        "win": 5,
+        "thresh": 30.0,
+        "wet": 2,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 5.3478260869565215,
+      "mumbai_bias_days": -3.0869565217391304,
+      "pune_mae_days": 10.0,
+      "pune_bias_days": -2.0,
+      "statewide_false_onset_pct": 2.0753346477119434,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 159.94202898550725,
+          "mean_calendar_date": "Jun 08",
+          "std_days": 7.274900383741535
+        },
+        "Western Ghats": {
+          "mean_doy": 157.6195652173913,
+          "mean_calendar_date": "Jun 06",
+          "std_days": 6.3156850833328955
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 169.37265258215962,
+          "mean_calendar_date": "Jun 18",
+          "std_days": 21.275790281884657
+        },
+        "Marathwada": {
+          "mean_doy": 167.35977066411849,
+          "mean_calendar_date": "Jun 16",
+          "std_days": 14.464647789890355
+        },
+        "Vidarbha": {
+          "mean_doy": 165.16081871345028,
+          "mean_calendar_date": "Jun 14",
+          "std_days": 9.103858808420329
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_WIN_3D_25MM",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 3,
+        "thresh": 25.0,
+        "wet": 2,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 4.913043478260869,
+      "mumbai_bias_days": -1.608695652173913,
+      "pune_mae_days": 7.8,
+      "pune_bias_days": 1.4,
+      "statewide_false_onset_pct": 3.2686520701463104,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 161.65217391304347,
+          "mean_calendar_date": "Jun 10",
+          "std_days": 9.1569662828901
+        },
+        "Western Ghats": {
+          "mean_doy": 158.07608695652175,
+          "mean_calendar_date": "Jun 07",
+          "std_days": 7.638274974853444
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 172.17724867724868,
+          "mean_calendar_date": "Jun 21",
+          "std_days": 23.500372863113373
+        },
+        "Marathwada": {
+          "mean_doy": 170.13240917782028,
+          "mean_calendar_date": "Jun 19",
+          "std_days": 16.193239192153445
+        },
+        "Vidarbha": {
+          "mean_doy": 167.80506822612085,
+          "mean_calendar_date": "Jun 16",
+          "std_days": 9.977216425808901
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_WIN_5D_30MM",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 30.0,
+        "wet": 2,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 5.739130434782608,
+      "mumbai_bias_days": -3.4782608695652173,
+      "pune_mae_days": 11.2,
+      "pune_bias_days": -3.2,
+      "statewide_false_onset_pct": 2.2517380927674586,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 159.27053140096618,
+          "mean_calendar_date": "Jun 08",
+          "std_days": 7.839837029246797
+        },
+        "Western Ghats": {
+          "mean_doy": 156.06884057971016,
+          "mean_calendar_date": "Jun 05",
+          "std_days": 7.5631860160725655
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 168.03550469483568,
+          "mean_calendar_date": "Jun 17",
+          "std_days": 21.441307484542346
+        },
+        "Marathwada": {
+          "mean_doy": 166.6383182035356,
+          "mean_calendar_date": "Jun 15",
+          "std_days": 14.874522269548333
+        },
+        "Vidarbha": {
+          "mean_doy": 165.02469135802468,
+          "mean_calendar_date": "Jun 14",
+          "std_days": 9.226380438170775
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_WIN_5D_35MM",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 35.0,
+        "wet": 2,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 5.695652173913044,
+      "mumbai_bias_days": -3.347826086956522,
+      "pune_mae_days": 11.2,
+      "pune_bias_days": -2.8,
+      "statewide_false_onset_pct": 2.0857113209505034,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 159.9855072463768,
+          "mean_calendar_date": "Jun 08",
+          "std_days": 8.289728386586466
+        },
+        "Western Ghats": {
+          "mean_doy": 156.79951690821255,
+          "mean_calendar_date": "Jun 05",
+          "std_days": 7.930458604624691
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 171.20634920634922,
+          "mean_calendar_date": "Jun 20",
+          "std_days": 24.244826735095426
+        },
+        "Marathwada": {
+          "mean_doy": 169.21070234113714,
+          "mean_calendar_date": "Jun 18",
+          "std_days": 16.777542840041587
+        },
+        "Vidarbha": {
+          "mean_doy": 166.3869395711501,
+          "mean_calendar_date": "Jun 15",
+          "std_days": 9.68369400023439
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_THRESH_20MM",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 20.0,
+        "wet": 2,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 5.913043478260869,
+      "mumbai_bias_days": -4.3478260869565215,
+      "pune_mae_days": 11.2,
+      "pune_bias_days": -3.6,
+      "statewide_false_onset_pct": 2.7394417349797653,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 157.8599033816425,
+          "mean_calendar_date": "Jun 06",
+          "std_days": 6.513804441326409
+        },
+        "Western Ghats": {
+          "mean_doy": 154.65458937198068,
+          "mean_calendar_date": "Jun 03",
+          "std_days": 6.711013062792321
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 162.78147823546595,
+          "mean_calendar_date": "Jun 11",
+          "std_days": 16.62815778238214
+        },
+        "Marathwada": {
+          "mean_doy": 162.34543717152414,
+          "mean_calendar_date": "Jun 11",
+          "std_days": 12.25082753964441
+        },
+        "Vidarbha": {
+          "mean_doy": 162.49253731343285,
+          "mean_calendar_date": "Jun 11",
+          "std_days": 8.429659489202187
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_THRESH_25MM",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 25.0,
+        "wet": 2,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 5.695652173913044,
+      "mumbai_bias_days": -3.782608695652174,
+      "pune_mae_days": 11.4,
+      "pune_bias_days": -3.4,
+      "statewide_false_onset_pct": 2.313998132198817,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 158.4830917874396,
+          "mean_calendar_date": "Jun 07",
+          "std_days": 6.809942582509951
+        },
+        "Western Ghats": {
+          "mean_doy": 155.2753623188406,
+          "mean_calendar_date": "Jun 04",
+          "std_days": 6.91103030268067
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 165.16510538641685,
+          "mean_calendar_date": "Jun 14",
+          "std_days": 18.689522924447818
+        },
+        "Marathwada": {
+          "mean_doy": 164.3081700907788,
+          "mean_calendar_date": "Jun 13",
+          "std_days": 13.357058189726148
+        },
+        "Vidarbha": {
+          "mean_doy": 163.77687560896396,
+          "mean_calendar_date": "Jun 12",
+          "std_days": 8.676490759204587
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_THRESH_30MM",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 30.0,
+        "wet": 2,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 5.739130434782608,
+      "mumbai_bias_days": -3.4782608695652173,
+      "pune_mae_days": 11.2,
+      "pune_bias_days": -3.2,
+      "statewide_false_onset_pct": 2.2517380927674586,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 159.27053140096618,
+          "mean_calendar_date": "Jun 08",
+          "std_days": 7.839837029246797
+        },
+        "Western Ghats": {
+          "mean_doy": 156.06884057971016,
+          "mean_calendar_date": "Jun 05",
+          "std_days": 7.5631860160725655
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 168.03550469483568,
+          "mean_calendar_date": "Jun 17",
+          "std_days": 21.441307484542346
+        },
+        "Marathwada": {
+          "mean_doy": 166.6383182035356,
+          "mean_calendar_date": "Jun 15",
+          "std_days": 14.874522269548333
+        },
+        "Vidarbha": {
+          "mean_doy": 165.02469135802468,
+          "mean_calendar_date": "Jun 14",
+          "std_days": 9.226380438170775
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_THRESH_35MM",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 35.0,
+        "wet": 2,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 5.695652173913044,
+      "mumbai_bias_days": -3.347826086956522,
+      "pune_mae_days": 11.2,
+      "pune_bias_days": -2.8,
+      "statewide_false_onset_pct": 2.0857113209505034,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 159.9855072463768,
+          "mean_calendar_date": "Jun 08",
+          "std_days": 8.289728386586466
+        },
+        "Western Ghats": {
+          "mean_doy": 156.79951690821255,
+          "mean_calendar_date": "Jun 05",
+          "std_days": 7.930458604624691
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 171.20634920634922,
+          "mean_calendar_date": "Jun 20",
+          "std_days": 24.244826735095426
+        },
+        "Marathwada": {
+          "mean_doy": 169.21070234113714,
+          "mean_calendar_date": "Jun 18",
+          "std_days": 16.777542840041587
+        },
+        "Vidarbha": {
+          "mean_doy": 166.3869395711501,
+          "mean_calendar_date": "Jun 15",
+          "std_days": 9.68369400023439
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_THRESH_40MM",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 40.0,
+        "wet": 2,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 5.782608695652174,
+      "mumbai_bias_days": -2.8260869565217392,
+      "pune_mae_days": 8.2,
+      "pune_bias_days": 0.2,
+      "statewide_false_onset_pct": 1.8678011829407493,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 160.43961352657004,
+          "mean_calendar_date": "Jun 09",
+          "std_days": 8.345496968868995
+        },
+        "Western Ghats": {
+          "mean_doy": 157.45169082125605,
+          "mean_calendar_date": "Jun 06",
+          "std_days": 8.30437487524857
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 174.42016558249557,
+          "mean_calendar_date": "Jun 23",
+          "std_days": 26.714215383947092
+        },
+        "Marathwada": {
+          "mean_doy": 171.9918738049713,
+          "mean_calendar_date": "Jun 20",
+          "std_days": 18.762081663385317
+        },
+        "Vidarbha": {
+          "mean_doy": 167.84887877803055,
+          "mean_calendar_date": "Jun 16",
+          "std_days": 10.36830262207119
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_WET_1DAY",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 30.0,
+        "wet": 1,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 6.869565217391305,
+      "mumbai_bias_days": -4.956521739130435,
+      "pune_mae_days": 11.8,
+      "pune_bias_days": -3.8,
+      "statewide_false_onset_pct": 2.293244785721697,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 158.5072463768116,
+          "mean_calendar_date": "Jun 07",
+          "std_days": 7.811715198976885
+        },
+        "Western Ghats": {
+          "mean_doy": 155.75,
+          "mean_calendar_date": "Jun 04",
+          "std_days": 7.59252508708846
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 167.21547933157433,
+          "mean_calendar_date": "Jun 16",
+          "std_days": 21.134313966212044
+        },
+        "Marathwada": {
+          "mean_doy": 166.24175824175825,
+          "mean_calendar_date": "Jun 15",
+          "std_days": 14.773810946576193
+        },
+        "Vidarbha": {
+          "mean_doy": 164.54320987654322,
+          "mean_calendar_date": "Jun 13",
+          "std_days": 9.08557527434358
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_WET_2DAY",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 30.0,
+        "wet": 2,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 5.739130434782608,
+      "mumbai_bias_days": -3.4782608695652173,
+      "pune_mae_days": 11.2,
+      "pune_bias_days": -3.2,
+      "statewide_false_onset_pct": 2.2517380927674586,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 159.27053140096618,
+          "mean_calendar_date": "Jun 08",
+          "std_days": 7.839837029246797
+        },
+        "Western Ghats": {
+          "mean_doy": 156.06884057971016,
+          "mean_calendar_date": "Jun 05",
+          "std_days": 7.5631860160725655
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 168.03550469483568,
+          "mean_calendar_date": "Jun 17",
+          "std_days": 21.441307484542346
+        },
+        "Marathwada": {
+          "mean_doy": 166.6383182035356,
+          "mean_calendar_date": "Jun 15",
+          "std_days": 14.874522269548333
+        },
+        "Vidarbha": {
+          "mean_doy": 165.02469135802468,
+          "mean_calendar_date": "Jun 14",
+          "std_days": 9.226380438170775
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_WET_3DAY",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 30.0,
+        "wet": 3,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 4.869565217391305,
+      "mumbai_bias_days": -2.260869565217391,
+      "pune_mae_days": 8.6,
+      "pune_bias_days": 3.4,
+      "statewide_false_onset_pct": 1.9093078758949882,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 160.5024154589372,
+          "mean_calendar_date": "Jun 09",
+          "std_days": 7.814809671655827
+        },
+        "Western Ghats": {
+          "mean_doy": 157.35386473429952,
+          "mean_calendar_date": "Jun 06",
+          "std_days": 7.552019088310463
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 172.5957008244994,
+          "mean_calendar_date": "Jun 21",
+          "std_days": 24.452038926549662
+        },
+        "Marathwada": {
+          "mean_doy": 169.558106169297,
+          "mean_calendar_date": "Jun 18",
+          "std_days": 16.459821523386754
+        },
+        "Vidarbha": {
+          "mean_doy": 166.9067273318167,
+          "mean_calendar_date": "Jun 15",
+          "std_days": 9.844917568564345
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_BREAK_NONE",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 30.0,
+        "wet": 2,
+        "break_max": null
+      },
+      "mumbai_mae_days": 5.739130434782608,
+      "mumbai_bias_days": -3.4782608695652173,
+      "pune_mae_days": 11.2,
+      "pune_bias_days": -3.2,
+      "statewide_false_onset_pct": 0.0,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 159.27053140096618,
+          "mean_calendar_date": "Jun 08",
+          "std_days": 7.839837029246797
+        },
+        "Western Ghats": {
+          "mean_doy": 156.06884057971016,
+          "mean_calendar_date": "Jun 05",
+          "std_days": 7.5631860160725655
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 166.7566617862372,
+          "mean_calendar_date": "Jun 15",
+          "std_days": 19.915463991246508
+        },
+        "Marathwada": {
+          "mean_doy": 166.26899187768754,
+          "mean_calendar_date": "Jun 15",
+          "std_days": 14.655586633640443
+        },
+        "Vidarbha": {
+          "mean_doy": 164.7936972059779,
+          "mean_calendar_date": "Jun 13",
+          "std_days": 9.216442875325477
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_BREAK_14D",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 30.0,
+        "wet": 2,
+        "break_max": 14
+      },
+      "mumbai_mae_days": 5.739130434782608,
+      "mumbai_bias_days": -3.4782608695652173,
+      "pune_mae_days": 11.2,
+      "pune_bias_days": -3.2,
+      "statewide_false_onset_pct": 2.2517380927674586,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 159.27053140096618,
+          "mean_calendar_date": "Jun 08",
+          "std_days": 7.839837029246797
+        },
+        "Western Ghats": {
+          "mean_doy": 156.06884057971016,
+          "mean_calendar_date": "Jun 05",
+          "std_days": 7.5631860160725655
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 168.03550469483568,
+          "mean_calendar_date": "Jun 17",
+          "std_days": 21.441307484542346
+        },
+        "Marathwada": {
+          "mean_doy": 166.6383182035356,
+          "mean_calendar_date": "Jun 15",
+          "std_days": 14.874522269548333
+        },
+        "Vidarbha": {
+          "mean_doy": 165.02469135802468,
+          "mean_calendar_date": "Jun 14",
+          "std_days": 9.226380438170775
+        }
+      }
+    },
+    {
+      "config": {
+        "id": "EXP_BREAK_10D",
+        "start_m": 5,
+        "start_d": 25,
+        "win": 5,
+        "thresh": 30.0,
+        "wet": 2,
+        "break_max": 10
+      },
+      "mumbai_mae_days": 6.217391304347826,
+      "mumbai_bias_days": -2.739130434782609,
+      "pune_mae_days": 8.6,
+      "pune_bias_days": -0.6,
+      "statewide_false_onset_pct": 10.32478987236692,
+      "regional_onsets": {
+        "Konkan": {
+          "mean_doy": 160.0096618357488,
+          "mean_calendar_date": "Jun 09",
+          "std_days": 8.436744076377014
+        },
+        "Western Ghats": {
+          "mean_doy": 156.39734299516908,
+          "mean_calendar_date": "Jun 05",
+          "std_days": 8.354485774352117
+        },
+        "Madhya Maharashtra": {
+          "mean_doy": 171.29719350073856,
+          "mean_calendar_date": "Jun 20",
+          "std_days": 24.190999115564328
+        },
+        "Marathwada": {
+          "mean_doy": 168.60239234449762,
+          "mean_calendar_date": "Jun 17",
+          "std_days": 16.885097022336627
+        },
+        "Vidarbha": {
+          "mean_doy": 165.90123456790124,
+          "mean_calendar_date": "Jun 14",
+          "std_days": 9.999609727742435
+        }
+      }
+    }
+  ]
+}

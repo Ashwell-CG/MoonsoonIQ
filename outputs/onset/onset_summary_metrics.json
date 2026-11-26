@@ -1,0 +1,128 @@
+{
+  "dataset_metadata": {
+    "total_cells": 419,
+    "years_covered": 23,
+    "total_cell_years": 9637,
+    "algorithm_version": "2.0 (Two-Tier Sustained Onset)"
+  },
+  "overall_results": {
+    "confirmed_onsets_count": 9606,
+    "confirmed_onsets_pct": 99.67832312960465,
+    "no_detection_count": 31,
+    "no_detection_pct": 0.32167687039535126,
+    "unverified_count": 0,
+    "total_rejected_candidates_events": 655,
+    "cell_years_with_rejections": 496,
+    "cell_years_with_rejections_pct": 5.14682992632562
+  },
+  "quality_flag_breakdown": {
+    "high_confidence_flag_1": 9132,
+    "moderate_confidence_flag_2": 474,
+    "no_detection_flag_0": 31,
+    "unverified_flag_neg1": 0
+  },
+  "cyclone_association_summary": {
+    "total_cyclone_associated_records": 668,
+    "cyclone_associated_pct": 6.931617723357891,
+    "matching_rule": "Statewide temporal co-occurrence (confirmed onset date falling within [-1d, +2d] of verified Arabian Sea tropical cyclone passage)",
+    "events_tracked": [
+      "Cyclone ARB 01 (2001)",
+      "Cyclone Gonu (2007)",
+      "Cyclone Vayu (2019)",
+      "Cyclone Nisarga (2020)",
+      "Cyclone Tauktae (2021)",
+      "Cyclone Biparjoy (2023)"
+    ]
+  },
+  "no_detection_yearly_distribution": {
+    "2002": 1,
+    "2003": 14,
+    "2009": 3,
+    "2015": 1,
+    "2018": 4,
+    "2023": 8
+  },
+  "regional_metrics": {
+    "Western Ghats": {
+      "cell_count": 36,
+      "total_cell_years": 828,
+      "confirmed_onsets": 828,
+      "detection_rate_pct": 100.0,
+      "no_detection_count": 0,
+      "cell_years_with_rejections": 1,
+      "rejection_frequency_pct": 0.12077294685990338,
+      "median_doy": 158.0,
+      "mean_doy": 158.432373046875,
+      "std_days": 8.103736877441406,
+      "iqr_days": 9.0
+    },
+    "Konkan": {
+      "cell_count": 9,
+      "total_cell_years": 207,
+      "confirmed_onsets": 207,
+      "detection_rate_pct": 100.0,
+      "no_detection_count": 0,
+      "cell_years_with_rejections": 1,
+      "rejection_frequency_pct": 0.4830917874396135,
+      "median_doy": 160.0,
+      "mean_doy": 161.65699768066406,
+      "std_days": 9.171117782592773,
+      "iqr_days": 10.0
+    },
+    "Vidarbha": {
+      "cell_count": 134,
+      "total_cell_years": 3082,
+      "confirmed_onsets": 3079,
+      "detection_rate_pct": 99.9026606099935,
+      "no_detection_count": 3,
+      "cell_years_with_rejections": 74,
+      "rejection_frequency_pct": 2.401038286826736,
+      "median_doy": 165.0,
+      "mean_doy": 165.99740600585938,
+      "std_days": 9.313702583312988,
+      "iqr_days": 14.0
+    },
+    "Marathwada": {
+      "cell_count": 91,
+      "total_cell_years": 2093,
+      "confirmed_onsets": 2093,
+      "detection_rate_pct": 100.0,
+      "no_detection_count": 0,
+      "cell_years_with_rejections": 78,
+      "rejection_frequency_pct": 3.7267080745341614,
+      "median_doy": 163.0,
+      "mean_doy": 167.29049682617188,
+      "std_days": 13.994117736816406,
+      "iqr_days": 19.0
+    },
+    "Madhya Maharashtra": {
+      "cell_count": 149,
+      "total_cell_years": 3427,
+      "confirmed_onsets": 3399,
+      "detection_rate_pct": 99.1829588561424,
+      "no_detection_count": 28,
+      "cell_years_with_rejections": 342,
+      "rejection_frequency_pct": 9.97957397140356,
+      "median_doy": 163.0,
+      "mean_doy": 170.5975341796875,
+      "std_days": 21.57485580444336,
+      "iqr_days": 21.0
+    }
+  },
+  "mumbai_benchmark": {
+    "coordinates": "19.25\u00b0N, 73.00\u00b0E",
+    "administrative_location": "Thane District (Northern Mumbai Metropolitan Region / MMR)",
+    "evaluation_years": 23,
+    "missing_years": 0,
+    "mae_days": 4.260869565217392,
+    "bias_days": -3.391304347826087
+  },
+  "pune_benchmark": {
+    "coordinates": "18.50\u00b0N, 73.75\u00b0E",
+    "administrative_location": "Pune District (Interior Rain-Shadow Plateau)",
+    "evaluation_years": 5,
+    "missing_years": 18,
+    "mae_days": 9.8,
+    "bias_days": -1.4
+  }
+}

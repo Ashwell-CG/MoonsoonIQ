@@ -1,0 +1,147 @@
+{
+  "onset_profile_summary": {
+    "Core Interior Synchronized": {
+      "cell_count": 215,
+      "state_percentage": 51.31,
+      "median_onset_doy": 163.34,
+      "mean_onset_doy": 165.91,
+      "std_onset_doy": 10.71,
+      "iqr_onset_doy": 13.98,
+      "early_onset_freq": 0.2087,
+      "delayed_onset_freq": 0.2771,
+      "rejected_candidate_freq": 0.0245,
+      "mean_max_dry_spell": 5.97,
+      "onset_detection_freq": 0.9992
+    },
+    "Rain-Shadow High-Volatility": {
+      "cell_count": 42,
+      "state_percentage": 10.02,
+      "median_onset_doy": 163.14,
+      "mean_onset_doy": 176.11,
+      "std_onset_doy": 30.73,
+      "iqr_onset_doy": 30.18,
+      "early_onset_freq": 0.3467,
+      "delayed_onset_freq": 0.3561,
+      "rejected_candidate_freq": 0.1667,
+      "mean_max_dry_spell": 9.36,
+      "onset_detection_freq": 0.972
+    },
+    "Early Maritime & Western Ghats": {
+      "cell_count": 65,
+      "state_percentage": 15.51,
+      "median_onset_doy": 157.88,
+      "mean_onset_doy": 159.75,
+      "std_onset_doy": 8.45,
+      "iqr_onset_doy": 10.08,
+      "early_onset_freq": 0.4227,
+      "delayed_onset_freq": 0.1077,
+      "rejected_candidate_freq": 0.0033,
+      "mean_max_dry_spell": 3.81,
+      "onset_detection_freq": 1.0
+    },
+    "Interior Semi-Arid Transition": {
+      "cell_count": 97,
+      "state_percentage": 23.15,
+      "median_onset_doy": 167.41,
+      "mean_onset_doy": 171.09,
+      "std_onset_doy": 16.15,
+      "iqr_onset_doy": 19.74,
+      "early_onset_freq": 0.1842,
+      "delayed_onset_freq": 0.398,
+      "rejected_candidate_freq": 0.0937,
+      "mean_max_dry_spell": 7.64,
+      "onset_detection_freq": 1.0
+    }
+  },
+  "agricultural_validation_summary": {
+    "Core Interior Synchronized": {
+      "june_mean_rainfall_mm": 168.32,
+      "june_rainfall_cv_pct": 61.14,
+      "jj_mean_rainfall_mm": 481.18,
+      "may_mean_rainfall_mm": 12.56,
+      "june_mean_wet_days": 9.92,
+      "sowing_trigger_median_doy": 168.38,
+      "sowing_delay_past_july1_freq": 0.0781,
+      "early_dry_spell_mean_days": 11.18,
+      "early_dry_spell_max_days": 23.21,
+      "severe_dry_spell_10d_freq": 0.5666,
+      "onset_std_p1_2001_2011": 10.26,
+      "onset_std_p2_2012_2023": 10.87
+    },
+    "Rain-Shadow High-Volatility": {
+      "june_mean_rainfall_mm": 106.93,
+      "june_rainfall_cv_pct": 66.79,
+      "jj_mean_rainfall_mm": 206.53,
+      "may_mean_rainfall_mm": 23.29,
+      "june_mean_wet_days": 7.62,
+      "sowing_trigger_median_doy": 166.11,
+      "sowing_delay_past_july1_freq": 0.2443,
+      "early_dry_spell_mean_days": 14.5,
+      "early_dry_spell_max_days": 30.86,
+      "severe_dry_spell_10d_freq": 0.7433,
+      "onset_std_p1_2001_2011": 30.48,
+      "onset_std_p2_2012_2023": 30.79
+    },
+    "Early Maritime & Western Ghats": {
+      "june_mean_rainfall_mm": 486.33,
+      "june_rainfall_cv_pct": 52.26,
+      "jj_mean_rainfall_mm": 1361.52,
+      "may_mean_rainfall_mm": 32.11,
+      "june_mean_wet_days": 16.5,
+      "sowing_trigger_median_doy": 162.62,
+      "sowing_delay_past_july1_freq": 0.0261,
+      "early_dry_spell_mean_days": 7.68,
+      "early_dry_spell_max_days": 17.85,
+      "severe_dry_spell_10d_freq": 0.2896,
+      "onset_std_p1_2001_2011": 8.61,
+      "onset_std_p2_2012_2023": 7.98
+    },
+    "Interior Semi-Arid Transition": {
+      "june_mean_rainfall_mm": 116.29,
+      "june_rainfall_cv_pct": 64.54,
+      "jj_mean_rainfall_mm": 294.45,
+      "may_mean_rainfall_mm": 9.37,
+      "june_mean_wet_days": 8.03,
+      "sowing_trigger_median_doy": 171.47,
+      "sowing_delay_past_july1_freq": 0.1941,
+      "early_dry_spell_mean_days": 13.48,
+      "early_dry_spell_max_days": 27.1,
+      "severe_dry_spell_10d_freq": 0.7468,
+      "onset_std_p1_2001_2011": 16.49,
+      "onset_std_p2_2012_2023": 15.55
+    }
+  },
+  "high_volatility_audit": {
+    "cell_count": 42,
+    "district_distribution": {
+      "Solapur": 12,
+      "Sangli": 9,
+      "Satara": 8,
+      "Pune": 6,
+      "Ahmadnagar": 6,
+      "Nashik": 1
+    },
+    "lat_bounds": [
+      16.75,
+      20.25
+    ],
+    "lon_bounds": [
+      74.25,
+      76.25
+    ],
+    "decadal_persistence": {
+      "period_1_std_days": 30.48,
+      "period_2_std_days": 30.79
+    },
+    "comparison_vs_transition": {
+      "onset_std_ratio": 1.9,
+      "false_onset_ratio": 1.78,
+      "june_cv_volatile": 66.79,
+      "june_cv_transition": 64.54,
+      "sowing_delay_volatile": 0.2443,
+      "sowing_delay_transition": 0.1941,
+      "early_dry_spell_max_volatile": 30.86,
+      "early_dry_spell_max_transition": 27.1
+    }
+  }
+}

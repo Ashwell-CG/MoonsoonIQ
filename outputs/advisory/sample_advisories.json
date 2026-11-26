@@ -1,0 +1,1110 @@
+[
+  {
+    "grid_cell": {
+      "cell_id": "cell_020",
+      "cell_index": 20,
+      "latitude": 16.75,
+      "longitude": 74.75,
+      "district": "Sangli",
+      "zone_id": 3,
+      "zone_name": "Madhya Maharashtra",
+      "regime_kmeans": "Rain-Shadow High-Volatility"
+    },
+    "historical_baseline": {
+      "historical_years_count": 23,
+      "regime_cell_count": 42,
+      "regime_total_cell_years": 966,
+      "median_onset_doy": 158.0,
+      "mean_onset_doy": 171.26,
+      "std_onset_doy": 28.43,
+      "iqr_onset_doy": 23.0,
+      "early_onset_freq": 0.4348,
+      "delayed_onset_freq": 0.3478,
+      "rejected_candidate_freq": 0.1304,
+      "onset_detection_freq": 1.0,
+      "june_mean_rainfall_mm": 100.51,
+      "june_rainfall_cv_pct": 54.72,
+      "jj_mean_rainfall_mm": 195.26,
+      "may_mean_rainfall_mm": 50.34,
+      "june_mean_wet_days": 7.7,
+      "sowing_50mm_median_doy": 163.5,
+      "sowing_50mm_delay_freq": 0.1304,
+      "early_dry_spell_mean_days": 14.52,
+      "early_dry_spell_max_days": 27.0,
+      "severe_dry_spell_10d_freq": 0.6957,
+      "regime_50mm_delayed_pct": 24.43,
+      "regime_50mm_unreached_pct": 10.04,
+      "regime_75mm_delayed_pct": 37.89,
+      "regime_75mm_unreached_pct": 20.6,
+      "regime_75mm_median_doy": 172.0,
+      "regime_rolling_3d_50mm_reach_pct": 44.0,
+      "regime_rolling_5d_50mm_reach_pct": 58.59,
+      "regime_post_trigger_10d_break_prob_pct": 39.13,
+      "regime_post_trigger_7d_break_prob_pct": 65.59,
+      "regime_mean_immediate_dry_spell_days": 2.99,
+      "regime_post_trigger_5d_rain_mm": 23.51,
+      "regime_post_trigger_10d_rain_mm": 40.21
+    },
+    "current_metrics": {
+      "as_of_date": "2024-06-20",
+      "season_start_date": "2024-06-01",
+      "total_days_observed": 20,
+      "valid_days_count": 20,
+      "missing_days_count": 0,
+      "data_completeness_pct": 100.0,
+      "cumulative_rainfall_mm": 55.0,
+      "rainy_days_count": 2,
+      "current_3day_rainfall_mm": 0.0,
+      "current_5day_rainfall_mm": 0.0,
+      "max_rolling_3day_mm": 55.0,
+      "max_rolling_5day_mm": 55.0,
+      "max_single_day_rain_mm": 35.0,
+      "current_consecutive_dry_days": 11,
+      "candidate_trigger_date": null,
+      "candidate_trigger_doy": null,
+      "is_triggered": false,
+      "verification_window_wet_days": null,
+      "post_trigger_dry_days": null,
+      "post_trigger_5d_rain_mm": null,
+      "is_extreme_rain_event": false
+    },
+    "advisory_state": "CAUTION",
+    "state_reasoning": [
+      "Cumulative rainfall reached 55.0 mm (exceeding 50 mm), BUT 50 mm solo triggering is strictly PROHIBITED in the Rain Shadow. MPKV Rahuri and MonsoonIQ Phase 7.1 research enforce a minimum of 75 mm to wet 15-20 cm of heavy Vertisol root zone.",
+      "Historically, 39.13% of 50 mm triggers in this regime were followed by a >= 10-day severe dry spell, causing widespread seedling desiccation."
+    ],
+    "condition_evaluations": [
+      {
+        "condition_name": "Data Completeness",
+        "passed": true,
+        "threshold_description": ">=90% completeness (max 3 missing days)",
+        "actual_value": "100.0% (0 missing days)",
+        "rule_type": "Scientific Integrity Requirement",
+        "source_citation": "MonsoonIQ Data Quality Framework; IMD Gridded Rainfall Guidelines"
+      },
+      {
+        "condition_name": "Cumulative Rainfall >= 75.0 mm",
+        "passed": false,
+        "threshold_description": ">=75.0 mm accumulated from June 1",
+        "actual_value": "55.0 mm",
+        "rule_type": "Institutionally Supported",
+        "source_citation": "MPKV Rahuri / Dr. PDKV Akola / VNMKV Parbhani Vertisol POP (2020-2022)"
+      },
+      {
+        "condition_name": "Season Rainy Days >= 2",
+        "passed": true,
+        "threshold_description": ">=2 distinct days with >= 2.5 mm",
+        "actual_value": "2 days",
+        "rule_type": "Research-Derived Experimental",
+        "source_citation": "MonsoonIQ Two-Stage Onset Detection Protocol; IMD Rainy Day Standard"
+      },
+      {
+        "condition_name": "50 mm Solo Trigger Prohibition",
+        "passed": false,
+        "threshold_description": "Rain-Shadow strictly requires >= 75 mm (50 mm solo trigger prohibited)",
+        "actual_value": "55.0 mm (Below 75 mm)",
+        "rule_type": "Research-Derived Experimental & Institutional",
+        "source_citation": "Phase 7.1 Sowing Trigger Audit; MPKV Rahuri Scarcity Zone Guidelines (2021)"
+      }
+    ],
+    "post_trigger_dry_spell_status": "Cumulative rainfall (55.0 mm) has not reached the 75.0 mm threshold. Current dry spell: 11 days.",
+    "historical_risk_summary": {
+      "Regime Name": "Rain-Shadow High-Volatility",
+      "Baseline Sample Size": "23 years (2001-2023), 42 cells, 966 cell-years",
+      "June Rainfall Mean / CV": "100.5 mm (CV: 54.7%)",
+      "Historical Onset DOY (Median +/- Std)": "DOY 158.0 (+/- 28.4 days)",
+      "50 mm Sowing Delay Frequency (> July 1 or Never)": "24.43% (236 / 966 cell-years)",
+      "50 mm Never Reached by July 15": "10.04% (97 / 966 cell-years)",
+      "75 mm Never Reached by July 15": "20.60% (199 / 966 cell-years)",
+      "Post-Trigger >= 10-Day Break Probability": "39.13% (340 / 869 triggered cell-years over 20-day window)",
+      "Post-Trigger >= 7-Day Break Probability": "65.59% (570 / 869 triggered cell-years)",
+      "Mean Immediate Dry Spell Post-Trigger": "2.99 consecutive dry days"
+    },
+    "contingency_recommendations": [
+      "Hold dryland sowing. Wait for cumulative rainfall to reach >= 75 mm with verified secondary rain."
+    ],
+    "data_freshness_and_completeness": {
+      "start_date": "2024-06-01",
+      "as_of_date": "2024-06-20",
+      "total_days": 20,
+      "valid_days": 20,
+      "missing_days": 0,
+      "completeness_pct": 100.0
+    },
+    "limitations_disclaimer": [
+      "Rainfall accumulation is an imperfect proxy for soil profile moisture; it does not measure plant available water capacity.",
+      "Attaining rainfall criteria does NOT guarantee successful crop establishment or protection against subsequent dry spells.",
+      "This advisory is experimental research output; it is NOT an official government declaration and does NOT substitute for IMD or State Department of Agriculture advisories.",
+      "Local soil type (shallow Inceptisols vs deep Vertisols), terrain slope, and farm-level irrigation infrastructure must dictate final operational sowing decisions."
+    ]
+  },
+  {
+    "grid_cell": {
+      "cell_id": "cell_020",
+      "cell_index": 20,
+      "latitude": 16.75,
+      "longitude": 74.75,
+      "district": "Sangli",
+      "zone_id": 3,
+      "zone_name": "Madhya Maharashtra",
+      "regime_kmeans": "Rain-Shadow High-Volatility"
+    },
+    "historical_baseline": {
+      "historical_years_count": 23,
+      "regime_cell_count": 42,
+      "regime_total_cell_years": 966,
+      "median_onset_doy": 158.0,
+      "mean_onset_doy": 171.26,
+      "std_onset_doy": 28.43,
+      "iqr_onset_doy": 23.0,
+      "early_onset_freq": 0.4348,
+      "delayed_onset_freq": 0.3478,
+      "rejected_candidate_freq": 0.1304,
+      "onset_detection_freq": 1.0,
+      "june_mean_rainfall_mm": 100.51,
+      "june_rainfall_cv_pct": 54.72,
+      "jj_mean_rainfall_mm": 195.26,
+      "may_mean_rainfall_mm": 50.34,
+      "june_mean_wet_days": 7.7,
+      "sowing_50mm_median_doy": 163.5,
+      "sowing_50mm_delay_freq": 0.1304,
+      "early_dry_spell_mean_days": 14.52,
+      "early_dry_spell_max_days": 27.0,
+      "severe_dry_spell_10d_freq": 0.6957,
+      "regime_50mm_delayed_pct": 24.43,
+      "regime_50mm_unreached_pct": 10.04,
+      "regime_75mm_delayed_pct": 37.89,
+      "regime_75mm_unreached_pct": 20.6,
+      "regime_75mm_median_doy": 172.0,
+      "regime_rolling_3d_50mm_reach_pct": 44.0,
+      "regime_rolling_5d_50mm_reach_pct": 58.59,
+      "regime_post_trigger_10d_break_prob_pct": 39.13,
+      "regime_post_trigger_7d_break_prob_pct": 65.59,
+      "regime_mean_immediate_dry_spell_days": 2.99,
+      "regime_post_trigger_5d_rain_mm": 23.51,
+      "regime_post_trigger_10d_rain_mm": 40.21
+    },
+    "current_metrics": {
+      "as_of_date": "2024-06-20",
+      "season_start_date": "2024-06-01",
+      "total_days_observed": 20,
+      "valid_days_count": 20,
+      "missing_days_count": 0,
+      "data_completeness_pct": 100.0,
+      "cumulative_rainfall_mm": 90.0,
+      "rainy_days_count": 5,
+      "current_3day_rainfall_mm": 0.0,
+      "current_5day_rainfall_mm": 5.0,
+      "max_rolling_3day_mm": 52.0,
+      "max_rolling_5day_mm": 85.0,
+      "max_single_day_rain_mm": 30.0,
+      "current_consecutive_dry_days": 4,
+      "candidate_trigger_date": "2024-06-14",
+      "candidate_trigger_doy": 166,
+      "is_triggered": true,
+      "verification_window_wet_days": 1,
+      "post_trigger_dry_days": 1,
+      "post_trigger_5d_rain_mm": 5.0,
+      "is_extreme_rain_event": false
+    },
+    "advisory_state": "RAINFALL CRITERIA MET",
+    "state_reasoning": [
+      "Experimental rainfall threshold achieved (90.0 mm >= 75.0 mm) with 5 wet days. Note: This indicates historical rainfall accumulation criteria have been satisfied; it does NOT guarantee crop establishment.",
+      "HIGH DESICCATION ALERT: Historically in this regime, 39.13% of triggered years experienced a >= 10-day break within 20 days. Sow drought-tolerant crops (Bajra cv. Phule Aadishakti, Pigeonpea cv. Phule Rajeshwari, Sunflower cv. Phule Bhaskar)."
+    ],
+    "condition_evaluations": [
+      {
+        "condition_name": "Data Completeness",
+        "passed": true,
+        "threshold_description": ">=90% completeness (max 3 missing days)",
+        "actual_value": "100.0% (0 missing days)",
+        "rule_type": "Scientific Integrity Requirement",
+        "source_citation": "MonsoonIQ Data Quality Framework; IMD Gridded Rainfall Guidelines"
+      },
+      {
+        "condition_name": "Cumulative Rainfall >= 75.0 mm",
+        "passed": true,
+        "threshold_description": ">=75.0 mm accumulated from June 1",
+        "actual_value": "90.0 mm",
+        "rule_type": "Institutionally Supported",
+        "source_citation": "MPKV Rahuri / Dr. PDKV Akola / VNMKV Parbhani Vertisol POP (2020-2022)"
+      },
+      {
+        "condition_name": "Season Rainy Days >= 2",
+        "passed": true,
+        "threshold_description": ">=2 distinct days with >= 2.5 mm",
+        "actual_value": "5 days",
+        "rule_type": "Research-Derived Experimental",
+        "source_citation": "MonsoonIQ Two-Stage Onset Detection Protocol; IMD Rainy Day Standard"
+      },
+      {
+        "condition_name": "50 mm Solo Trigger Prohibition",
+        "passed": true,
+        "threshold_description": "Rain-Shadow strictly requires >= 75 mm (50 mm solo trigger prohibited)",
+        "actual_value": "Enforced (75 mm required)",
+        "rule_type": "Research-Derived Experimental & Institutional",
+        "source_citation": "Phase 7.1 Sowing Trigger Audit; MPKV Rahuri Scarcity Zone Guidelines (2021)"
+      },
+      {
+        "condition_name": "Two-Stage Verification Window Persistence",
+        "passed": true,
+        "threshold_description": "At least 2 distinct rainy days or secondary rain event confirming sustained monsoon flow",
+        "actual_value": "5 season wet days, 1 wet days in 5d post-trigger",
+        "rule_type": "Research-Derived Experimental",
+        "source_citation": "MonsoonIQ Two-Stage Sustained Onset Architecture (Phase 5B/7.1)"
+      }
+    ],
+    "post_trigger_dry_spell_status": "Candidate trigger reached on 2024-06-14 (DOY 166). Post-trigger dry spell: 1 consecutive dry days. Historical >=10-day break probability in this regime is 39.1%.",
+    "historical_risk_summary": {
+      "Regime Name": "Rain-Shadow High-Volatility",
+      "Baseline Sample Size": "23 years (2001-2023), 42 cells, 966 cell-years",
+      "June Rainfall Mean / CV": "100.5 mm (CV: 54.7%)",
+      "Historical Onset DOY (Median +/- Std)": "DOY 158.0 (+/- 28.4 days)",
+      "50 mm Sowing Delay Frequency (> July 1 or Never)": "24.43% (236 / 966 cell-years)",
+      "50 mm Never Reached by July 15": "10.04% (97 / 966 cell-years)",
+      "75 mm Never Reached by July 15": "20.60% (199 / 966 cell-years)",
+      "Post-Trigger >= 10-Day Break Probability": "39.13% (340 / 869 triggered cell-years over 20-day window)",
+      "Post-Trigger >= 7-Day Break Probability": "65.59% (570 / 869 triggered cell-years)",
+      "Mean Immediate Dry Spell Post-Trigger": "2.99 consecutive dry days"
+    },
+    "contingency_recommendations": [
+      "Adopt broad bed furrow (BBF) or ridges and furrows for in-situ moisture conservation."
+    ],
+    "data_freshness_and_completeness": {
+      "start_date": "2024-06-01",
+      "as_of_date": "2024-06-20",
+      "total_days": 20,
+      "valid_days": 20,
+      "missing_days": 0,
+      "completeness_pct": 100.0
+    },
+    "limitations_disclaimer": [
+      "Rainfall accumulation is an imperfect proxy for soil profile moisture; it does not measure plant available water capacity.",
+      "Attaining rainfall criteria does NOT guarantee successful crop establishment or protection against subsequent dry spells.",
+      "This advisory is experimental research output; it is NOT an official government declaration and does NOT substitute for IMD or State Department of Agriculture advisories.",
+      "Local soil type (shallow Inceptisols vs deep Vertisols), terrain slope, and farm-level irrigation infrastructure must dictate final operational sowing decisions."
+    ]
+  },
+  {
+    "grid_cell": {
+      "cell_id": "cell_020",
+      "cell_index": 20,
+      "latitude": 16.75,
+      "longitude": 74.75,
+      "district": "Sangli",
+      "zone_id": 3,
+      "zone_name": "Madhya Maharashtra",
+      "regime_kmeans": "Rain-Shadow High-Volatility"
+    },
+    "historical_baseline": {
+      "historical_years_count": 23,
+      "regime_cell_count": 42,
+      "regime_total_cell_years": 966,
+      "median_onset_doy": 158.0,
+      "mean_onset_doy": 171.26,
+      "std_onset_doy": 28.43,
+      "iqr_onset_doy": 23.0,
+      "early_onset_freq": 0.4348,
+      "delayed_onset_freq": 0.3478,
+      "rejected_candidate_freq": 0.1304,
+      "onset_detection_freq": 1.0,
+      "june_mean_rainfall_mm": 100.51,
+      "june_rainfall_cv_pct": 54.72,
+      "jj_mean_rainfall_mm": 195.26,
+      "may_mean_rainfall_mm": 50.34,
+      "june_mean_wet_days": 7.7,
+      "sowing_50mm_median_doy": 163.5,
+      "sowing_50mm_delay_freq": 0.1304,
+      "early_dry_spell_mean_days": 14.52,
+      "early_dry_spell_max_days": 27.0,
+      "severe_dry_spell_10d_freq": 0.6957,
+      "regime_50mm_delayed_pct": 24.43,
+      "regime_50mm_unreached_pct": 10.04,
+      "regime_75mm_delayed_pct": 37.89,
+      "regime_75mm_unreached_pct": 20.6,
+      "regime_75mm_median_doy": 172.0,
+      "regime_rolling_3d_50mm_reach_pct": 44.0,
+      "regime_rolling_5d_50mm_reach_pct": 58.59,
+      "regime_post_trigger_10d_break_prob_pct": 39.13,
+      "regime_post_trigger_7d_break_prob_pct": 65.59,
+      "regime_mean_immediate_dry_spell_days": 2.99,
+      "regime_post_trigger_5d_rain_mm": 23.51,
+      "regime_post_trigger_10d_rain_mm": 40.21
+    },
+    "current_metrics": {
+      "as_of_date": "2024-07-20",
+      "season_start_date": "2024-06-01",
+      "total_days_observed": 50,
+      "valid_days_count": 50,
+      "missing_days_count": 0,
+      "data_completeness_pct": 100.0,
+      "cumulative_rainfall_mm": 32.0,
+      "rainy_days_count": 4,
+      "current_3day_rainfall_mm": 0.0,
+      "current_5day_rainfall_mm": 0.0,
+      "max_rolling_3day_mm": 8.0,
+      "max_rolling_5day_mm": 8.0,
+      "max_single_day_rain_mm": 8.0,
+      "current_consecutive_dry_days": 14,
+      "candidate_trigger_date": null,
+      "candidate_trigger_doy": null,
+      "is_triggered": false,
+      "verification_window_wet_days": null,
+      "post_trigger_dry_days": null,
+      "post_trigger_5d_rain_mm": null,
+      "is_extreme_rain_event": false
+    },
+    "advisory_state": "HIGH RISK",
+    "state_reasoning": [
+      "SOWING WINDOW DELAYED PAST JULY 15: Cumulative rainfall is 32.0 mm, representing an early-season moisture deficit of 43.0 mm from the 75.0 mm requirement.",
+      "Historically, 20.6% of years in this regime fail to accumulate 75 mm by July 15. Sowing long-duration Kharif crops past mid-July incurs severe terminal moisture stress during September grain-filling."
+    ],
+    "condition_evaluations": [
+      {
+        "condition_name": "Data Completeness",
+        "passed": true,
+        "threshold_description": ">=90% completeness (max 3 missing days)",
+        "actual_value": "100.0% (0 missing days)",
+        "rule_type": "Scientific Integrity Requirement",
+        "source_citation": "MonsoonIQ Data Quality Framework; IMD Gridded Rainfall Guidelines"
+      },
+      {
+        "condition_name": "Cumulative Rainfall >= 75.0 mm",
+        "passed": false,
+        "threshold_description": ">=75.0 mm accumulated from June 1",
+        "actual_value": "32.0 mm",
+        "rule_type": "Institutionally Supported",
+        "source_citation": "MPKV Rahuri / Dr. PDKV Akola / VNMKV Parbhani Vertisol POP (2020-2022)"
+      },
+      {
+        "condition_name": "Season Rainy Days >= 2",
+        "passed": true,
+        "threshold_description": ">=2 distinct days with >= 2.5 mm",
+        "actual_value": "4 days",
+        "rule_type": "Research-Derived Experimental",
+        "source_citation": "MonsoonIQ Two-Stage Onset Detection Protocol; IMD Rainy Day Standard"
+      },
+      {
+        "condition_name": "50 mm Solo Trigger Prohibition",
+        "passed": true,
+        "threshold_description": "Rain-Shadow strictly requires >= 75 mm (50 mm solo trigger prohibited)",
+        "actual_value": "32.0 mm (Below 75 mm)",
+        "rule_type": "Research-Derived Experimental & Institutional",
+        "source_citation": "Phase 7.1 Sowing Trigger Audit; MPKV Rahuri Scarcity Zone Guidelines (2021)"
+      }
+    ],
+    "post_trigger_dry_spell_status": "Cumulative rainfall (32.0 mm) has not reached the 75.0 mm threshold. Current dry spell: 14 days.",
+    "historical_risk_summary": {
+      "Regime Name": "Rain-Shadow High-Volatility",
+      "Baseline Sample Size": "23 years (2001-2023), 42 cells, 966 cell-years",
+      "June Rainfall Mean / CV": "100.5 mm (CV: 54.7%)",
+      "Historical Onset DOY (Median +/- Std)": "DOY 158.0 (+/- 28.4 days)",
+      "50 mm Sowing Delay Frequency (> July 1 or Never)": "24.43% (236 / 966 cell-years)",
+      "50 mm Never Reached by July 15": "10.04% (97 / 966 cell-years)",
+      "75 mm Never Reached by July 15": "20.60% (199 / 966 cell-years)",
+      "Post-Trigger >= 10-Day Break Probability": "39.13% (340 / 869 triggered cell-years over 20-day window)",
+      "Post-Trigger >= 7-Day Break Probability": "65.59% (570 / 869 triggered cell-years)",
+      "Mean Immediate Dry Spell Post-Trigger": "2.99 consecutive dry days"
+    },
+    "contingency_recommendations": [
+      "ICAR-CRIDA Solapur Contingency Guidance: Cease normal Kharif sowing of long-duration crops. Conserve soil profile moisture for Rabi season (Rabi Sorghum cv. Maldandi M 35-1, Chickpea cv. Vijay, Safflower cv. Bhima).",
+      "MPKV Rahuri Contingency Alternative: If rainfall arrives before late July, plant only early-maturing contingency crops (Horsegram cv. Sina / Man, Cowpea cv. Phule Pandhari, or Sunflower cv. Phule Bhaskar)."
+    ],
+    "data_freshness_and_completeness": {
+      "start_date": "2024-06-01",
+      "as_of_date": "2024-07-20",
+      "total_days": 50,
+      "valid_days": 50,
+      "missing_days": 0,
+      "completeness_pct": 100.0
+    },
+    "limitations_disclaimer": [
+      "Rainfall accumulation is an imperfect proxy for soil profile moisture; it does not measure plant available water capacity.",
+      "Attaining rainfall criteria does NOT guarantee successful crop establishment or protection against subsequent dry spells.",
+      "This advisory is experimental research output; it is NOT an official government declaration and does NOT substitute for IMD or State Department of Agriculture advisories.",
+      "Local soil type (shallow Inceptisols vs deep Vertisols), terrain slope, and farm-level irrigation infrastructure must dictate final operational sowing decisions."
+    ]
+  },
+  {
+    "grid_cell": {
+      "cell_id": "cell_014",
+      "cell_index": 14,
+      "latitude": 16.5,
+      "longitude": 74.25,
+      "district": "Kolhapur",
+      "zone_id": 3,
+      "zone_name": "Madhya Maharashtra",
+      "regime_kmeans": "Core Interior Synchronized"
+    },
+    "historical_baseline": {
+      "historical_years_count": 23,
+      "regime_cell_count": 215,
+      "regime_total_cell_years": 4945,
+      "median_onset_doy": 161.0,
+      "mean_onset_doy": 163.65,
+      "std_onset_doy": 11.41,
+      "iqr_onset_doy": 22.0,
+      "early_onset_freq": 0.4348,
+      "delayed_onset_freq": 0.3478,
+      "rejected_candidate_freq": 0.0435,
+      "onset_detection_freq": 1.0,
+      "june_mean_rainfall_mm": 158.86,
+      "june_rainfall_cv_pct": 50.19,
+      "jj_mean_rainfall_mm": 427.73,
+      "may_mean_rainfall_mm": 29.32,
+      "june_mean_wet_days": 11.48,
+      "sowing_50mm_median_doy": 164.0,
+      "sowing_50mm_delay_freq": 0.087,
+      "early_dry_spell_mean_days": 10.57,
+      "early_dry_spell_max_days": 24.0,
+      "severe_dry_spell_10d_freq": 0.5652,
+      "regime_50mm_delayed_pct": 7.81,
+      "regime_50mm_unreached_pct": 1.13,
+      "regime_75mm_delayed_pct": 17.59,
+      "regime_75mm_unreached_pct": 2.57,
+      "regime_75mm_median_doy": 173.0,
+      "regime_rolling_3d_50mm_reach_pct": 82.41,
+      "regime_rolling_5d_50mm_reach_pct": 90.11,
+      "regime_post_trigger_10d_break_prob_pct": 12.52,
+      "regime_post_trigger_7d_break_prob_pct": 35.61,
+      "regime_mean_immediate_dry_spell_days": 1.32,
+      "regime_post_trigger_5d_rain_mm": 54.72,
+      "regime_post_trigger_10d_rain_mm": 98.81
+    },
+    "current_metrics": {
+      "as_of_date": "2024-06-22",
+      "season_start_date": "2024-06-01",
+      "total_days_observed": 22,
+      "valid_days_count": 22,
+      "missing_days_count": 0,
+      "data_completeness_pct": 100.0,
+      "cumulative_rainfall_mm": 82.0,
+      "rainy_days_count": 5,
+      "current_3day_rainfall_mm": 10.0,
+      "current_5day_rainfall_mm": 24.0,
+      "max_rolling_3day_mm": 58.0,
+      "max_rolling_5day_mm": 72.0,
+      "max_single_day_rain_mm": 25.0,
+      "current_consecutive_dry_days": 2,
+      "candidate_trigger_date": "2024-06-20",
+      "candidate_trigger_doy": 172,
+      "is_triggered": true,
+      "verification_window_wet_days": 0,
+      "post_trigger_dry_days": 2,
+      "post_trigger_5d_rain_mm": 0.0,
+      "is_extreme_rain_event": false
+    },
+    "advisory_state": "RAINFALL CRITERIA MET",
+    "state_reasoning": [
+      "Experimental rainfall criteria met (82.0 mm >= 75.0 mm). Vidarbha synchronized onset regime exhibits high reliability and low historical break risk (12.5%)."
+    ],
+    "condition_evaluations": [
+      {
+        "condition_name": "Data Completeness",
+        "passed": true,
+        "threshold_description": ">=90% completeness (max 3 missing days)",
+        "actual_value": "100.0% (0 missing days)",
+        "rule_type": "Scientific Integrity Requirement",
+        "source_citation": "MonsoonIQ Data Quality Framework; IMD Gridded Rainfall Guidelines"
+      },
+      {
+        "condition_name": "Cumulative Rainfall >= 75.0 mm",
+        "passed": true,
+        "threshold_description": ">=75.0 mm accumulated from June 1",
+        "actual_value": "82.0 mm",
+        "rule_type": "Institutionally Supported",
+        "source_citation": "MPKV Rahuri / Dr. PDKV Akola / VNMKV Parbhani Vertisol POP (2020-2022)"
+      },
+      {
+        "condition_name": "Season Rainy Days >= 2",
+        "passed": true,
+        "threshold_description": ">=2 distinct days with >= 2.5 mm",
+        "actual_value": "5 days",
+        "rule_type": "Research-Derived Experimental",
+        "source_citation": "MonsoonIQ Two-Stage Onset Detection Protocol; IMD Rainy Day Standard"
+      },
+      {
+        "condition_name": "Two-Stage Verification Window Persistence",
+        "passed": true,
+        "threshold_description": "At least 2 distinct rainy days or secondary rain event confirming sustained monsoon flow",
+        "actual_value": "5 season wet days, 0 wet days in 5d post-trigger",
+        "rule_type": "Research-Derived Experimental",
+        "source_citation": "MonsoonIQ Two-Stage Sustained Onset Architecture (Phase 5B/7.1)"
+      }
+    ],
+    "post_trigger_dry_spell_status": "Candidate trigger reached on 2024-06-20 (DOY 172). Post-trigger dry spell: 2 consecutive dry days. Historical >=10-day break probability in this regime is 12.5%.",
+    "historical_risk_summary": {
+      "Regime Name": "Core Interior Synchronized",
+      "Baseline Sample Size": "23 years (2001-2023), 215 cells, 4945 cell-years",
+      "June Rainfall Mean / CV": "158.9 mm (CV: 50.2%)",
+      "Historical Onset DOY (Median +/- Std)": "DOY 161.0 (+/- 11.4 days)",
+      "50 mm Sowing Delay Frequency (> July 1 or Never)": "7.81% (386 / 4945 cell-years)",
+      "50 mm Never Reached by July 15": "1.13% (56 / 4945 cell-years)",
+      "75 mm Never Reached by July 15": "2.57% (127 / 4945 cell-years)",
+      "Post-Trigger >= 10-Day Break Probability": "12.52% (612 / 4889 triggered cell-years over 20-day window)",
+      "Post-Trigger >= 7-Day Break Probability": "35.61% (1741 / 4889 triggered cell-years)",
+      "Mean Immediate Dry Spell Post-Trigger": "1.32 consecutive dry days"
+    },
+    "contingency_recommendations": [
+      "Sow recommended Soybean (PDKV AMS-100-39, JS-335) or Cotton (AKH-081) varieties as per Dr. PDKV Akola guidelines."
+    ],
+    "data_freshness_and_completeness": {
+      "start_date": "2024-06-01",
+      "as_of_date": "2024-06-22",
+      "total_days": 22,
+      "valid_days": 22,
+      "missing_days": 0,
+      "completeness_pct": 100.0
+    },
+    "limitations_disclaimer": [
+      "Rainfall accumulation is an imperfect proxy for soil profile moisture; it does not measure plant available water capacity.",
+      "Attaining rainfall criteria does NOT guarantee successful crop establishment or protection against subsequent dry spells.",
+      "This advisory is experimental research output; it is NOT an official government declaration and does NOT substitute for IMD or State Department of Agriculture advisories.",
+      "Local soil type (shallow Inceptisols vs deep Vertisols), terrain slope, and farm-level irrigation infrastructure must dictate final operational sowing decisions."
+    ]
+  },
+  {
+    "grid_cell": {
+      "cell_id": "cell_000",
+      "cell_index": 0,
+      "latitude": 15.75,
+      "longitude": 73.75,
+      "district": "Sindhudurg",
+      "zone_id": 1,
+      "zone_name": "Western Ghats",
+      "regime_kmeans": "Early Maritime & Western Ghats"
+    },
+    "historical_baseline": {
+      "historical_years_count": 23,
+      "regime_cell_count": 65,
+      "regime_total_cell_years": 1495,
+      "median_onset_doy": 153.0,
+      "mean_onset_doy": 153.74,
+      "std_onset_doy": 4.99,
+      "iqr_onset_doy": 9.0,
+      "early_onset_freq": 0.6522,
+      "delayed_onset_freq": 0.0,
+      "rejected_candidate_freq": 0.0,
+      "onset_detection_freq": 1.0,
+      "june_mean_rainfall_mm": 889.76,
+      "june_rainfall_cv_pct": 29.33,
+      "jj_mean_rainfall_mm": 1995.4,
+      "may_mean_rainfall_mm": 73.97,
+      "june_mean_wet_days": 23.65,
+      "sowing_50mm_median_doy": 158.0,
+      "sowing_50mm_delay_freq": 0.0,
+      "early_dry_spell_mean_days": 3.74,
+      "early_dry_spell_max_days": 10.0,
+      "severe_dry_spell_10d_freq": 0.087,
+      "regime_50mm_delayed_pct": 2.61,
+      "regime_50mm_unreached_pct": 0.2,
+      "regime_75mm_delayed_pct": 6.02,
+      "regime_75mm_unreached_pct": 0.87,
+      "regime_75mm_median_doy": 165.0,
+      "regime_rolling_3d_50mm_reach_pct": 92.84,
+      "regime_rolling_5d_50mm_reach_pct": 95.45,
+      "regime_post_trigger_10d_break_prob_pct": 7.04,
+      "regime_post_trigger_7d_break_prob_pct": 18.83,
+      "regime_mean_immediate_dry_spell_days": 0.8,
+      "regime_post_trigger_5d_rain_mm": 101.6,
+      "regime_post_trigger_10d_rain_mm": 222.94
+    },
+    "current_metrics": {
+      "as_of_date": "2024-06-15",
+      "season_start_date": "2024-06-01",
+      "total_days_observed": 15,
+      "valid_days_count": 15,
+      "missing_days_count": 0,
+      "data_completeness_pct": 100.0,
+      "cumulative_rainfall_mm": 65.0,
+      "rainy_days_count": 3,
+      "current_3day_rainfall_mm": 0.0,
+      "current_5day_rainfall_mm": 0.0,
+      "max_rolling_3day_mm": 47.0,
+      "max_rolling_5day_mm": 65.0,
+      "max_single_day_rain_mm": 25.0,
+      "current_consecutive_dry_days": 5,
+      "candidate_trigger_date": "2024-06-10",
+      "candidate_trigger_doy": 162,
+      "is_triggered": true,
+      "verification_window_wet_days": 0,
+      "post_trigger_dry_days": 5,
+      "post_trigger_5d_rain_mm": 0.0,
+      "is_extreme_rain_event": false
+    },
+    "advisory_state": "RAINFALL CRITERIA MET",
+    "state_reasoning": [
+      "Experimental rainfall criteria met (65.0 mm >= 50.0 mm). Maritime onset is highly reliable with low historical dry-break risk (7.0%)."
+    ],
+    "condition_evaluations": [
+      {
+        "condition_name": "Data Completeness",
+        "passed": true,
+        "threshold_description": ">=90% completeness (max 3 missing days)",
+        "actual_value": "100.0% (0 missing days)",
+        "rule_type": "Scientific Integrity Requirement",
+        "source_citation": "MonsoonIQ Data Quality Framework; IMD Gridded Rainfall Guidelines"
+      },
+      {
+        "condition_name": "Cumulative Rainfall >= 50.0 mm",
+        "passed": true,
+        "threshold_description": ">=50.0 mm accumulated from June 1",
+        "actual_value": "65.0 mm",
+        "rule_type": "Institutionally Supported",
+        "source_citation": "MPKV Rahuri / Dr. PDKV Akola / VNMKV Parbhani Vertisol POP (2020-2022)"
+      },
+      {
+        "condition_name": "Season Rainy Days >= 2",
+        "passed": true,
+        "threshold_description": ">=2 distinct days with >= 2.5 mm",
+        "actual_value": "3 days",
+        "rule_type": "Research-Derived Experimental",
+        "source_citation": "MonsoonIQ Two-Stage Onset Detection Protocol; IMD Rainy Day Standard"
+      },
+      {
+        "condition_name": "Two-Stage Verification Window Persistence",
+        "passed": true,
+        "threshold_description": "At least 2 distinct rainy days or secondary rain event confirming sustained monsoon flow",
+        "actual_value": "3 season wet days, 0 wet days in 5d post-trigger",
+        "rule_type": "Research-Derived Experimental",
+        "source_citation": "MonsoonIQ Two-Stage Sustained Onset Architecture (Phase 5B/7.1)"
+      },
+      {
+        "condition_name": "Waterlogging & Extreme Rainfall Risk",
+        "passed": true,
+        "threshold_description": "No single day >= 100 mm and no 3-day sum >= 200 mm",
+        "actual_value": "1-Day Max: 25.0 mm, 3-Day Max: 47.0 mm",
+        "rule_type": "Agronomic Drainage Safety Indicator",
+        "source_citation": "Dr. BSKKV Dapoli Konkan Kharif Guidelines; CRIDA Drainage Protocols"
+      }
+    ],
+    "post_trigger_dry_spell_status": "Candidate trigger reached on 2024-06-10 (DOY 162). Post-trigger dry spell: 5 consecutive dry days. Historical >=10-day break probability in this regime is 7.0%.",
+    "historical_risk_summary": {
+      "Regime Name": "Early Maritime & Western Ghats",
+      "Baseline Sample Size": "23 years (2001-2023), 65 cells, 1495 cell-years",
+      "June Rainfall Mean / CV": "889.8 mm (CV: 29.3%)",
+      "Historical Onset DOY (Median +/- Std)": "DOY 153.0 (+/- 5.0 days)",
+      "50 mm Sowing Delay Frequency (> July 1 or Never)": "2.61% (39 / 1495 cell-years)",
+      "50 mm Never Reached by July 15": "0.20% (3 / 1495 cell-years)",
+      "75 mm Never Reached by July 15": "0.87% (13 / 1495 cell-years)",
+      "Post-Trigger >= 10-Day Break Probability": "7.04% (105 / 1492 triggered cell-years over 20-day window)",
+      "Post-Trigger >= 7-Day Break Probability": "18.83% (281 / 1492 triggered cell-years)",
+      "Mean Immediate Dry Spell Post-Trigger": "0.80 consecutive dry days"
+    },
+    "contingency_recommendations": [
+      "Proceed with paddy nursery sowing or direct seeded rice according to Dr. BSKKV Dapoli package of practices."
+    ],
+    "data_freshness_and_completeness": {
+      "start_date": "2024-06-01",
+      "as_of_date": "2024-06-15",
+      "total_days": 15,
+      "valid_days": 15,
+      "missing_days": 0,
+      "completeness_pct": 100.0
+    },
+    "limitations_disclaimer": [
+      "Rainfall accumulation is an imperfect proxy for soil profile moisture; it does not measure plant available water capacity.",
+      "Attaining rainfall criteria does NOT guarantee successful crop establishment or protection against subsequent dry spells.",
+      "This advisory is experimental research output; it is NOT an official government declaration and does NOT substitute for IMD or State Department of Agriculture advisories.",
+      "Local soil type (shallow Inceptisols vs deep Vertisols), terrain slope, and farm-level irrigation infrastructure must dictate final operational sowing decisions."
+    ]
+  },
+  {
+    "grid_cell": {
+      "cell_id": "cell_000",
+      "cell_index": 0,
+      "latitude": 15.75,
+      "longitude": 73.75,
+      "district": "Sindhudurg",
+      "zone_id": 1,
+      "zone_name": "Western Ghats",
+      "regime_kmeans": "Early Maritime & Western Ghats"
+    },
+    "historical_baseline": {
+      "historical_years_count": 23,
+      "regime_cell_count": 65,
+      "regime_total_cell_years": 1495,
+      "median_onset_doy": 153.0,
+      "mean_onset_doy": 153.74,
+      "std_onset_doy": 4.99,
+      "iqr_onset_doy": 9.0,
+      "early_onset_freq": 0.6522,
+      "delayed_onset_freq": 0.0,
+      "rejected_candidate_freq": 0.0,
+      "onset_detection_freq": 1.0,
+      "june_mean_rainfall_mm": 889.76,
+      "june_rainfall_cv_pct": 29.33,
+      "jj_mean_rainfall_mm": 1995.4,
+      "may_mean_rainfall_mm": 73.97,
+      "june_mean_wet_days": 23.65,
+      "sowing_50mm_median_doy": 158.0,
+      "sowing_50mm_delay_freq": 0.0,
+      "early_dry_spell_mean_days": 3.74,
+      "early_dry_spell_max_days": 10.0,
+      "severe_dry_spell_10d_freq": 0.087,
+      "regime_50mm_delayed_pct": 2.61,
+      "regime_50mm_unreached_pct": 0.2,
+      "regime_75mm_delayed_pct": 6.02,
+      "regime_75mm_unreached_pct": 0.87,
+      "regime_75mm_median_doy": 165.0,
+      "regime_rolling_3d_50mm_reach_pct": 92.84,
+      "regime_rolling_5d_50mm_reach_pct": 95.45,
+      "regime_post_trigger_10d_break_prob_pct": 7.04,
+      "regime_post_trigger_7d_break_prob_pct": 18.83,
+      "regime_mean_immediate_dry_spell_days": 0.8,
+      "regime_post_trigger_5d_rain_mm": 101.6,
+      "regime_post_trigger_10d_rain_mm": 222.94
+    },
+    "current_metrics": {
+      "as_of_date": "2024-06-16",
+      "season_start_date": "2024-06-01",
+      "total_days_observed": 16,
+      "valid_days_count": 16,
+      "missing_days_count": 0,
+      "data_completeness_pct": 100.0,
+      "cumulative_rainfall_mm": 240.0,
+      "rainy_days_count": 3,
+      "current_3day_rainfall_mm": 0.0,
+      "current_5day_rainfall_mm": 200.0,
+      "max_rolling_3day_mm": 240.0,
+      "max_rolling_5day_mm": 240.0,
+      "max_single_day_rain_mm": 160.0,
+      "current_consecutive_dry_days": 3,
+      "candidate_trigger_date": "2024-06-12",
+      "candidate_trigger_doy": 164,
+      "is_triggered": true,
+      "verification_window_wet_days": 1,
+      "post_trigger_dry_days": 0,
+      "post_trigger_5d_rain_mm": 40.0,
+      "is_extreme_rain_event": true
+    },
+    "advisory_state": "CAUTION",
+    "state_reasoning": [
+      "Cumulative rainfall reached (240.0 mm), BUT extreme rainfall detected: 1-day max of 160.0 mm or 3-day sum of 240.0 mm. Severe waterlogging, topsoil erosion, and seed rot hazard present."
+    ],
+    "condition_evaluations": [
+      {
+        "condition_name": "Data Completeness",
+        "passed": true,
+        "threshold_description": ">=90% completeness (max 3 missing days)",
+        "actual_value": "100.0% (0 missing days)",
+        "rule_type": "Scientific Integrity Requirement",
+        "source_citation": "MonsoonIQ Data Quality Framework; IMD Gridded Rainfall Guidelines"
+      },
+      {
+        "condition_name": "Cumulative Rainfall >= 50.0 mm",
+        "passed": true,
+        "threshold_description": ">=50.0 mm accumulated from June 1",
+        "actual_value": "240.0 mm",
+        "rule_type": "Institutionally Supported",
+        "source_citation": "MPKV Rahuri / Dr. PDKV Akola / VNMKV Parbhani Vertisol POP (2020-2022)"
+      },
+      {
+        "condition_name": "Season Rainy Days >= 2",
+        "passed": true,
+        "threshold_description": ">=2 distinct days with >= 2.5 mm",
+        "actual_value": "3 days",
+        "rule_type": "Research-Derived Experimental",
+        "source_citation": "MonsoonIQ Two-Stage Onset Detection Protocol; IMD Rainy Day Standard"
+      },
+      {
+        "condition_name": "Two-Stage Verification Window Persistence",
+        "passed": true,
+        "threshold_description": "At least 2 distinct rainy days or secondary rain event confirming sustained monsoon flow",
+        "actual_value": "3 season wet days, 1 wet days in 5d post-trigger",
+        "rule_type": "Research-Derived Experimental",
+        "source_citation": "MonsoonIQ Two-Stage Sustained Onset Architecture (Phase 5B/7.1)"
+      },
+      {
+        "condition_name": "Waterlogging & Extreme Rainfall Risk",
+        "passed": false,
+        "threshold_description": "No single day >= 100 mm and no 3-day sum >= 200 mm",
+        "actual_value": "1-Day Max: 160.0 mm, 3-Day Max: 240.0 mm",
+        "rule_type": "Agronomic Drainage Safety Indicator",
+        "source_citation": "Dr. BSKKV Dapoli Konkan Kharif Guidelines; CRIDA Drainage Protocols"
+      }
+    ],
+    "post_trigger_dry_spell_status": "Candidate trigger reached on 2024-06-12 (DOY 164). Post-trigger dry spell: 0 consecutive dry days. Historical >=10-day break probability in this regime is 7.0%.",
+    "historical_risk_summary": {
+      "Regime Name": "Early Maritime & Western Ghats",
+      "Baseline Sample Size": "23 years (2001-2023), 65 cells, 1495 cell-years",
+      "June Rainfall Mean / CV": "889.8 mm (CV: 29.3%)",
+      "Historical Onset DOY (Median +/- Std)": "DOY 153.0 (+/- 5.0 days)",
+      "50 mm Sowing Delay Frequency (> July 1 or Never)": "2.61% (39 / 1495 cell-years)",
+      "50 mm Never Reached by July 15": "0.20% (3 / 1495 cell-years)",
+      "75 mm Never Reached by July 15": "0.87% (13 / 1495 cell-years)",
+      "Post-Trigger >= 10-Day Break Probability": "7.04% (105 / 1492 triggered cell-years over 20-day window)",
+      "Post-Trigger >= 7-Day Break Probability": "18.83% (281 / 1492 triggered cell-years)",
+      "Mean Immediate Dry Spell Post-Trigger": "0.80 consecutive dry days"
+    },
+    "contingency_recommendations": [
+      "Ensure drainage channels are clear before direct seeding; delay sowing until standing water recedes."
+    ],
+    "data_freshness_and_completeness": {
+      "start_date": "2024-06-01",
+      "as_of_date": "2024-06-16",
+      "total_days": 16,
+      "valid_days": 16,
+      "missing_days": 0,
+      "completeness_pct": 100.0
+    },
+    "limitations_disclaimer": [
+      "Rainfall accumulation is an imperfect proxy for soil profile moisture; it does not measure plant available water capacity.",
+      "Attaining rainfall criteria does NOT guarantee successful crop establishment or protection against subsequent dry spells.",
+      "This advisory is experimental research output; it is NOT an official government declaration and does NOT substitute for IMD or State Department of Agriculture advisories.",
+      "Local soil type (shallow Inceptisols vs deep Vertisols), terrain slope, and farm-level irrigation infrastructure must dictate final operational sowing decisions."
+    ]
+  },
+  {
+    "grid_cell": {
+      "cell_id": "cell_019",
+      "cell_index": 19,
+      "latitude": 16.75,
+      "longitude": 74.5,
+      "district": "Kolhapur",
+      "zone_id": 3,
+      "zone_name": "Madhya Maharashtra",
+      "regime_kmeans": "Interior Semi-Arid Transition"
+    },
+    "historical_baseline": {
+      "historical_years_count": 23,
+      "regime_cell_count": 97,
+      "regime_total_cell_years": 2231,
+      "median_onset_doy": 173.0,
+      "mean_onset_doy": 177.65,
+      "std_onset_doy": 24.4,
+      "iqr_onset_doy": 22.0,
+      "early_onset_freq": 0.1739,
+      "delayed_onset_freq": 0.5652,
+      "rejected_candidate_freq": 0.2174,
+      "onset_detection_freq": 1.0,
+      "june_mean_rainfall_mm": 104.34,
+      "june_rainfall_cv_pct": 71.85,
+      "jj_mean_rainfall_mm": 241.41,
+      "may_mean_rainfall_mm": 37.55,
+      "june_mean_wet_days": 7.65,
+      "sowing_50mm_median_doy": 169.0,
+      "sowing_50mm_delay_freq": 0.2609,
+      "early_dry_spell_mean_days": 14.39,
+      "early_dry_spell_max_days": 35.0,
+      "severe_dry_spell_10d_freq": 0.7391,
+      "regime_50mm_delayed_pct": 19.41,
+      "regime_50mm_unreached_pct": 2.42,
+      "regime_75mm_delayed_pct": 32.94,
+      "regime_75mm_unreached_pct": 7.8,
+      "regime_75mm_median_doy": 175.0,
+      "regime_rolling_3d_50mm_reach_pct": 66.47,
+      "regime_rolling_5d_50mm_reach_pct": 78.13,
+      "regime_post_trigger_10d_break_prob_pct": 24.99,
+      "regime_post_trigger_7d_break_prob_pct": 48.64,
+      "regime_mean_immediate_dry_spell_days": 1.64,
+      "regime_post_trigger_5d_rain_mm": 37.58,
+      "regime_post_trigger_10d_rain_mm": 66.65
+    },
+    "current_metrics": {
+      "as_of_date": "2024-06-25",
+      "season_start_date": "2024-06-01",
+      "total_days_observed": 25,
+      "valid_days_count": 25,
+      "missing_days_count": 0,
+      "data_completeness_pct": 100.0,
+      "cumulative_rainfall_mm": 78.0,
+      "rainy_days_count": 4,
+      "current_3day_rainfall_mm": 15.0,
+      "current_5day_rainfall_mm": 32.0,
+      "max_rolling_3day_mm": 46.0,
+      "max_rolling_5day_mm": 63.0,
+      "max_single_day_rain_mm": 28.0,
+      "current_consecutive_dry_days": 2,
+      "candidate_trigger_date": "2024-06-23",
+      "candidate_trigger_doy": 175,
+      "is_triggered": true,
+      "verification_window_wet_days": 0,
+      "post_trigger_dry_days": 2,
+      "post_trigger_5d_rain_mm": 0.0,
+      "is_extreme_rain_event": false
+    },
+    "advisory_state": "RAINFALL CRITERIA MET",
+    "state_reasoning": [
+      "Experimental rainfall criteria met (78.0 mm >= 75.0 mm). Historical post-trigger break risk is moderate (25.0%)."
+    ],
+    "condition_evaluations": [
+      {
+        "condition_name": "Data Completeness",
+        "passed": true,
+        "threshold_description": ">=90% completeness (max 3 missing days)",
+        "actual_value": "100.0% (0 missing days)",
+        "rule_type": "Scientific Integrity Requirement",
+        "source_citation": "MonsoonIQ Data Quality Framework; IMD Gridded Rainfall Guidelines"
+      },
+      {
+        "condition_name": "Cumulative Rainfall >= 75.0 mm",
+        "passed": true,
+        "threshold_description": ">=75.0 mm accumulated from June 1",
+        "actual_value": "78.0 mm",
+        "rule_type": "Institutionally Supported",
+        "source_citation": "MPKV Rahuri / Dr. PDKV Akola / VNMKV Parbhani Vertisol POP (2020-2022)"
+      },
+      {
+        "condition_name": "Season Rainy Days >= 2",
+        "passed": true,
+        "threshold_description": ">=2 distinct days with >= 2.5 mm",
+        "actual_value": "4 days",
+        "rule_type": "Research-Derived Experimental",
+        "source_citation": "MonsoonIQ Two-Stage Onset Detection Protocol; IMD Rainy Day Standard"
+      },
+      {
+        "condition_name": "Two-Stage Verification Window Persistence",
+        "passed": true,
+        "threshold_description": "At least 2 distinct rainy days or secondary rain event confirming sustained monsoon flow",
+        "actual_value": "4 season wet days, 0 wet days in 5d post-trigger",
+        "rule_type": "Research-Derived Experimental",
+        "source_citation": "MonsoonIQ Two-Stage Sustained Onset Architecture (Phase 5B/7.1)"
+      }
+    ],
+    "post_trigger_dry_spell_status": "Candidate trigger reached on 2024-06-23 (DOY 175). Post-trigger dry spell: 2 consecutive dry days. Historical >=10-day break probability in this regime is 25.0%.",
+    "historical_risk_summary": {
+      "Regime Name": "Interior Semi-Arid Transition",
+      "Baseline Sample Size": "23 years (2001-2023), 97 cells, 2231 cell-years",
+      "June Rainfall Mean / CV": "104.3 mm (CV: 71.8%)",
+      "Historical Onset DOY (Median +/- Std)": "DOY 173.0 (+/- 24.4 days)",
+      "50 mm Sowing Delay Frequency (> July 1 or Never)": "19.41% (433 / 2231 cell-years)",
+      "50 mm Never Reached by July 15": "2.42% (54 / 2231 cell-years)",
+      "75 mm Never Reached by July 15": "7.80% (174 / 2231 cell-years)",
+      "Post-Trigger >= 10-Day Break Probability": "24.99% (544 / 2177 triggered cell-years over 20-day window)",
+      "Post-Trigger >= 7-Day Break Probability": "48.64% (1059 / 2177 triggered cell-years)",
+      "Mean Immediate Dry Spell Post-Trigger": "1.64 consecutive dry days"
+    },
+    "contingency_recommendations": [
+      "Adopt Soybean (MAUS-71) or Pigeonpea (BDN-711) intercropping as per VNMKV Parbhani advisories."
+    ],
+    "data_freshness_and_completeness": {
+      "start_date": "2024-06-01",
+      "as_of_date": "2024-06-25",
+      "total_days": 25,
+      "valid_days": 25,
+      "missing_days": 0,
+      "completeness_pct": 100.0
+    },
+    "limitations_disclaimer": [
+      "Rainfall accumulation is an imperfect proxy for soil profile moisture; it does not measure plant available water capacity.",
+      "Attaining rainfall criteria does NOT guarantee successful crop establishment or protection against subsequent dry spells.",
+      "This advisory is experimental research output; it is NOT an official government declaration and does NOT substitute for IMD or State Department of Agriculture advisories.",
+      "Local soil type (shallow Inceptisols vs deep Vertisols), terrain slope, and farm-level irrigation infrastructure must dictate final operational sowing decisions."
+    ]
+  },
+  {
+    "grid_cell": {
+      "cell_id": "cell_014",
+      "cell_index": 14,
+      "latitude": 16.5,
+      "longitude": 74.25,
+      "district": "Kolhapur",
+      "zone_id": 3,
+      "zone_name": "Madhya Maharashtra",
+      "regime_kmeans": "Core Interior Synchronized"
+    },
+    "historical_baseline": {
+      "historical_years_count": 23,
+      "regime_cell_count": 215,
+      "regime_total_cell_years": 4945,
+      "median_onset_doy": 161.0,
+      "mean_onset_doy": 163.65,
+      "std_onset_doy": 11.41,
+      "iqr_onset_doy": 22.0,
+      "early_onset_freq": 0.4348,
+      "delayed_onset_freq": 0.3478,
+      "rejected_candidate_freq": 0.0435,
+      "onset_detection_freq": 1.0,
+      "june_mean_rainfall_mm": 158.86,
+      "june_rainfall_cv_pct": 50.19,
+      "jj_mean_rainfall_mm": 427.73,
+      "may_mean_rainfall_mm": 29.32,
+      "june_mean_wet_days": 11.48,
+      "sowing_50mm_median_doy": 164.0,
+      "sowing_50mm_delay_freq": 0.087,
+      "early_dry_spell_mean_days": 10.57,
+      "early_dry_spell_max_days": 24.0,
+      "severe_dry_spell_10d_freq": 0.5652,
+      "regime_50mm_delayed_pct": 7.81,
+      "regime_50mm_unreached_pct": 1.13,
+      "regime_75mm_delayed_pct": 17.59,
+      "regime_75mm_unreached_pct": 2.57,
+      "regime_75mm_median_doy": 173.0,
+      "regime_rolling_3d_50mm_reach_pct": 82.41,
+      "regime_rolling_5d_50mm_reach_pct": 90.11,
+      "regime_post_trigger_10d_break_prob_pct": 12.52,
+      "regime_post_trigger_7d_break_prob_pct": 35.61,
+      "regime_mean_immediate_dry_spell_days": 1.32,
+      "regime_post_trigger_5d_rain_mm": 54.72,
+      "regime_post_trigger_10d_rain_mm": 98.81
+    },
+    "current_metrics": {
+      "as_of_date": "2024-06-20",
+      "season_start_date": "2024-06-01",
+      "total_days_observed": 20,
+      "valid_days_count": 15,
+      "missing_days_count": 5,
+      "data_completeness_pct": 75.0,
+      "cumulative_rainfall_mm": 30.0,
+      "rainy_days_count": 2,
+      "current_3day_rainfall_mm": 0.0,
+      "current_5day_rainfall_mm": 0.0,
+      "max_rolling_3day_mm": 15.0,
+      "max_rolling_5day_mm": 15.0,
+      "max_single_day_rain_mm": 15.0,
+      "current_consecutive_dry_days": 5,
+      "candidate_trigger_date": null,
+      "candidate_trigger_doy": null,
+      "is_triggered": false,
+      "verification_window_wet_days": null,
+      "post_trigger_dry_days": null,
+      "post_trigger_5d_rain_mm": null,
+      "is_extreme_rain_event": false
+    },
+    "advisory_state": "INSUFFICIENT DATA",
+    "state_reasoning": [
+      "Rainfall observation completeness (75.0%) is below required operational threshold (90%). Missing 5 days in the observation window. Missing days cannot be assumed to be dry or wet."
+    ],
+    "condition_evaluations": [
+      {
+        "condition_name": "Data Completeness",
+        "passed": false,
+        "threshold_description": ">=90% completeness (max 3 missing days)",
+        "actual_value": "75.0% (5 missing days)",
+        "rule_type": "Scientific Integrity Requirement",
+        "source_citation": "MonsoonIQ Data Quality Framework; IMD Gridded Rainfall Guidelines"
+      }
+    ],
+    "post_trigger_dry_spell_status": "Evaluation suspended due to incomplete observations.",
+    "historical_risk_summary": {
+      "Regime Name": "Core Interior Synchronized",
+      "Baseline Sample Size": "23 years (2001-2023), 215 cells, 4945 cell-years",
+      "June Rainfall Mean / CV": "158.9 mm (CV: 50.2%)",
+      "Historical Onset DOY (Median +/- Std)": "DOY 161.0 (+/- 11.4 days)",
+      "50 mm Sowing Delay Frequency (> July 1 or Never)": "7.81% (386 / 4945 cell-years)",
+      "50 mm Never Reached by July 15": "1.13% (56 / 4945 cell-years)",
+      "75 mm Never Reached by July 15": "2.57% (127 / 4945 cell-years)",
+      "Post-Trigger >= 10-Day Break Probability": "12.52% (612 / 4889 triggered cell-years over 20-day window)",
+      "Post-Trigger >= 7-Day Break Probability": "35.61% (1741 / 4889 triggered cell-years)",
+      "Mean Immediate Dry Spell Post-Trigger": "1.32 consecutive dry days"
+    },
+    "contingency_recommendations": [
+      "Verify local automated weather station (AWS) connectivity before evaluating sowing readiness."
+    ],
+    "data_freshness_and_completeness": {
+      "start_date": "2024-06-01",
+      "as_of_date": "2024-06-20",
+      "total_days": 20,
+      "valid_days": 15,
+      "missing_days": 5,
+      "completeness_pct": 75.0
+    },
+    "limitations_disclaimer": [
+      "Rainfall accumulation is an imperfect proxy for soil profile moisture; it does not measure plant available water capacity.",
+      "Attaining rainfall criteria does NOT guarantee successful crop establishment or protection against subsequent dry spells.",
+      "This advisory is experimental research output; it is NOT an official government declaration and does NOT substitute for IMD or State Department of Agriculture advisories.",
+      "Local soil type (shallow Inceptisols vs deep Vertisols), terrain slope, and farm-level irrigation infrastructure must dictate final operational sowing decisions."
+    ]
+  }
+]
